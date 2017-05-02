@@ -44,11 +44,19 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '<action>' => 'site/<action>',
+//                '<action>' => 'site/<action>',
+//                '/admin' => 'app/modules/admin/views/default/index.php'
             ],
         ],
 
     ],
+
+    'modules' => [
+        'admin' => [
+            'class' => 'app\modules\admin\Module',
+        ],
+    ],
+
     'params' => $params,
 ];
 
