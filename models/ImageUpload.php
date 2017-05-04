@@ -10,12 +10,11 @@ class ImageUpload extends Model {
 
     public $image;
 
-    public function uploadFile(UploadedFile $file ){
-//$currentImage
-//        var_dump($currentImage);die;
-//        $this->image=$file;
+    public function uploadFile(UploadedFile $file, $currentImage){
 
-//        ('@web') . 'uploads/' . $currentImage);
+        $this->image = $file;
+        
+        unlink(Yii::getAlias('@web') . 'uploads/' . $currentImage);
 
         $filename = strtolower(md5(uniqid($file->baseName))). '.' . $file->extension;
 
