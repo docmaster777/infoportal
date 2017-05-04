@@ -15,13 +15,13 @@ class ImageUpload extends Model {
 //        var_dump($currentImage);die;
 //        $this->image=$file;
 
-//        unlink(Yii::getAlias('@web') . 'uploads/' . $currentImage);
+//        ('@web') . 'uploads/' . $currentImage);
 
-//        $filename = strtolower(md5(uniqid($file->baseName)) . '.' . $file->extension);
+        $filename = strtolower(md5(uniqid($file->baseName))). '.' . $file->extension;
 
-        $file->saveAs(Yii::getAlias('@web') . 'uploads/' . $file->name);
+        $file->saveAs(Yii::getAlias('@web') . 'uploads/' . $filename);
 
-        return $file->name;
+        return $filename;
 
     }
 

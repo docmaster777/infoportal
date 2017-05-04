@@ -70,7 +70,7 @@ class Article extends \yii\db\ActiveRecord
     }
 
     public function saveImage($filename){
-        $this->image=$filename;
+        $this->image = $filename;
         return $this->save(false);
 
     }

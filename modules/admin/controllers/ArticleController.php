@@ -134,6 +134,8 @@ class ArticleController extends Controller
             $article = $this->findModel($id);
 
             $file = UploadedFile::getInstance($model, 'image');
+
+
 //            $model -> uploadFile($file);
 
             $article->saveImage($model -> uploadFile($file, $article->image));
