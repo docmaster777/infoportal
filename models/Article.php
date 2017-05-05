@@ -99,4 +99,14 @@ class Article extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Category::className(), ['id' => 'category_id']);
     }
+
+    public  function saveCategory($categoty_id){
+        $category = Category::findOne($categoty_id);
+            if ($category != null)
+            {
+                $this->link('category', $category);
+                return true;
+            }
+
+    }
 }
