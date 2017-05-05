@@ -2,7 +2,9 @@
 
 namespace app\modules\admin\controllers;
 
+use app\models\Category;
 use app\models\ImageUpload;
+use yii\helpers\ArrayHelper;
 use yii\web\UploadedFile;
 use Yii;
 use app\models\Article;
@@ -143,5 +145,20 @@ class ArticleController extends Controller
         }
 
         return  $this -> render ('image', ['model' => $model]);
+    }
+
+    public function actionSetCategory($id)
+    {
+        $article = $this->findModel($id);
+        $selectedCategoty = $article->category->id;
+        $categories = ArrayHelper::map(Category::find()->all(), 'id', 'title');
+
+        return $this->render('category', [
+                'article' => $article,
+                'selectedCategoty' => $selectedCategoty,
+                'categories' => $categories
+            ]
+        );
+
     }
 }
