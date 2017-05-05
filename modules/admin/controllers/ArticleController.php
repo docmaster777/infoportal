@@ -4,6 +4,7 @@ namespace app\modules\admin\controllers;
 
 use app\models\Category;
 use app\models\ImageUpload;
+use app\models\Tag;
 use yii\helpers\ArrayHelper;
 use yii\web\UploadedFile;
 use Yii;
@@ -171,5 +172,24 @@ class ArticleController extends Controller
             ]
         );
 
+    }
+
+    public function actionSetTags($id)
+    {
+        $article = $this->findModel($id);
+        $selectedTags = $article->getSelectedTags();
+        $tags = ArrayHelper::map(Tag::find()->all(), 'id', 'title');
+
+        if (Yii::$app->request->isPost)
+        {
+            $tags = Yii::$app->request->post('tags');
+            $article->saveTags($tags);
+            return $this->redirect(['view', 'id' =>$article->id]);
+        }
+
+        return $this->render('tags',[
+            'selectedTags' => $selectedTags,
+            'tags' => $tags
+        ]);
     }
 }
