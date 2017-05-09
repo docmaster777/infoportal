@@ -8,14 +8,11 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\PublicAsset;
-use app\assets\AppAsset;
 
-//AppAsset::register($this);
 PublicAsset::register($this);
-
 ?>
 <?php $this->beginPage() ?>
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
@@ -23,384 +20,688 @@ PublicAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
-    <!-- Bootstrap core CSS -->
+    <!--=============== fonts  ===============-->
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <!--<script src="style/js/html5shiv.js"></script>-->
-    <!--<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>-->
-    <![endif]-->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
+
+
+    <!--=============== favicons ===============-->
+
+    <link rel="shortcut icon" href="/web/images/favicon.ico">
+
 </head>
-<body class="full-layout">
+
+<body>
 <?php $this->beginBody() ?>
-<div id="preloader"><div id="status"><div class="spinner"></div></div></div>
-<div class="body-wrapper">
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="navbar-header"> <a class="btn responsive-menu" data-toggle="collapse" data-target=".navbar-collapse"><i></i></a>
-            <div class="navbar-brand text-center"> <a href="/web/dark/index.html"><img src="/web/public/images/logo.png" alt="" data-src="/web/public/images/logo.png" data-ret="/web/public/images/logo@2x.png" class="retina" /></a> </div>
-            <!-- /.navbar-brand -->
-        </div>
-        <!-- /.navbar-header -->
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="current"><a href="#home" class="hint--right" data-hint="Home"><i class="budicon-home-1"></i><span>Home</span></a></li>
-                <li><a href="#portfolio" class="hint--right" data-hint="Portfolio"><i class="budicon-image"></i><span>Portfolio</span></a></li>
-                <li><a href="#about" class="hint--right" data-hint="About"><i class="budicon-author"></i><span>About</span></a></li>
-                <li><a href="#contact" class="hint--right" data-hint="Contact"><i class="budicon-profile"></i><span>Contact</span></a></li>
-                <li><a href="/web/dark/blog.html" class="hint--right" data-hint="Blog"><i class="budicon-book-1"></i><span>Blog</span></a></li>
-                <li><a href="/web/public/elements.html" class="hint--right" data-hint="Elements"><i class="budicon-setting"></i><span>Elements</span></a></li>
-                <li><a href="#elsewhere" class="hint--right fancybox-inline" data-hint="Elsewhere" data-fancybox-width="325" data-fancybox-height="220"><i class="icon-heart-empty-1"></i><span>Elsewhere</span></a></li>
-            </ul>
-            <!-- /.navbar-nav -->
-        </div>
-        <!-- /.navbar-collapse -->
-        <div id="elsewhere" style="display:none;">
-            <h1>Me, Elsewhere</h1>
-            <div class="divide20"></div>
-            <ul class="social">
-                <li><a href="#"><i class="icon-s-twitter"></i></a></li>
-                <li><a href="#"><i class="icon-s-facebook"></i></a></li>
-                <li><a href="#"><i class="icon-s-instagram"></i></a></li>
-                <li><a href="#"><i class="icon-s-flickr"></i></a></li>
-                <li><a href="#"><i class="icon-s-pinterest"></i></a></li>
-                <li><a href="#"><i class="icon-s-linkedin"></i></a></li>
-            </ul>
-        </div>
-        <!-- /#elsewhere -->
-    </nav>
-    <!-- /.navbar -->
 
-    <section id="home" class="naked">
-        <div class="fullscreenbanner-container revolution">
-            <div class="fullscreenbanner">
-                <ul>
-                    <li data-transition="fade"> <img src="/web/public/images/dummy.png"  alt="slidebg1" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="repeat">
-                        <h1 class="tp-caption caption large sfb" data-x="center" data-y="center" data-voffset="-25" data-speed="900" data-start="1000" data-endspeed="100" data-easing="Sine.easeOut">Hello! This is Lumos Studio</h1>
-                        <div class="tp-caption small tp-fade fadeout tp-resizeme" data-x="center" data-y="center" data-voffset="25" data-speed="100"
-                             data-start="1500"
-                             data-easing="Power4.easeOut"
-                             data-splitin="chars"
-                             data-splitout="chars"
-                             data-elementdelay="0.03"
-                             data-endelementdelay="0"
-                             data-endspeed="100"
-                             data-endeasing="Power1.easeOut"
-                             style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">specializing in landscape, advertorial and conceptual photography</div>
-                        <div class="arrow smooth"><a href="#portfolio"><i class="icon-down-open-big"></i></a></div>
-                    </li>
-                </ul>
-                <div class="tp-bannertimer"></div>
-            </div>
-            <!-- /.fullscreenbanner -->
-        </div>
-        <!-- /.revolution -->
-    </section>
-    <!-- /#home -->
+<div id="main">
 
-    <div class="container">
-        <section id="portfolio" class="portfolio">
-            <div class="box">
-                <h2 class="section-title pull-left">From My Portfolio</h2>
-                <div id="filters-container" class="cbp-l-filters-alignRight pull-right">
-                    <div data-filter="*" class="cbp-filter-item-custom-active cbp-filter-item-custom btn">All</div>
-                    <div data-filter=".architecture" class="cbp-filter-item-custom btn">Architecture</div>
-                    <div data-filter=".macro" class="cbp-filter-item-custom btn">Macro</div>
-                    <div data-filter=".portrait" class="cbp-filter-item-custom btn">Portrait</div>
-                    <div data-filter=".still-life" class="cbp-filter-item-custom btn">Still Life</div>
-                </div>
-                <!-- /#filters-container -->
-                <div class="clearfix"></div>
-                <div id="grid-container" class="cbp-l-grid-masonry">
-                    <ul>
-                        <li class="cbp-item frame architecture"> <a class="cbp-caption cbp-singlePage" href="/web/dark/ajax/post1.html">
-                                <div class="cbp-caption-defaultWrap"> <img src="/web/public/images/art/pa1.jpg" alt=""> </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <div class="cbp-l-caption-title">Thumbnail Slider</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
+    <div class="wrapper">
+
+        <!--=============== intro slide ===============-->
+
+        <div id="intro">
+
+            <div id="topSlide">
+                <div id="slides">
+                    <ul class="slides-container">
+
+                        <!-- Slide 1 -->
+
+                        <li>
+                            <div class="raster"></div>
+                            <div class="container">
+                                <div class="patern clear"></div>
+                                <h3>Responsive one page portfolio</h3>
+                                <h1 class="white">We are <span>Pompey</span></h1>
+                                <div class="patern clear"></div>
+
+                            </div>
+
+                            <div style="background-image: url('/web/images/bg/1.jpg');" class="slides-big-img"></div>
                         </li>
-                        <li class="cbp-item frame macro"> <a class="cbp-caption cbp-singlePage" href="/web/dark/ajax/post2.html">
-                                <div class="cbp-caption-defaultWrap"> <img src="/web/public/images/art/pm1.jpg" alt=""> </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <div class="cbp-l-caption-title">Fullscreen Gallery</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
+
+                        <!-- Slide 2 -->
+
+                        <li>
+                            <div class="raster"></div>
+                            <div class="container">
+                                <div class="patern clear"></div>
+                                <h3>Personal or Team</h3>
+                                <h1 class="white"><span>Two</span> Versions</h1>
+                                <div class="patern clear"></div>
+                            </div>
+
+                            <div style="background-image: url('/web/images/bg/2.jpg');" class="slides-big-img"></div>
                         </li>
-                        <li class="cbp-item frame portrait"> <a class="cbp-caption cbp-singlePage" href="ajax/post3.html">
-                                <div class="cbp-caption-defaultWrap"> <img src="/web/public/images/art/pp1.jpg" alt=""> </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <div class="cbp-l-caption-title">Multiple Images</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
+
+                        <!-- Slide 3 -->
+
+                        <li>
+                            <div class="raster"></div>
+                            <div class="container ">
+                                <div class="patern clear"></div>
+                                <h3>Four variants</h3>
+                                <h1 class="white">Slider <span>or</span> Video </h1>
+                                <div class="patern clear"></div>
+                            </div>
+
+                            <div style="background-image: url('/web/images/bg/3.jpg');" class="slides-big-img"></div>
                         </li>
-                        <li class="cbp-item frame still-life"> <a class="cbp-caption cbp-singlePage" href="ajax/post4.html">
-                                <div class="cbp-caption-defaultWrap"> <img src="/web/public/images/art/ps1.jpg" alt=""> </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <div class="cbp-l-caption-title">Fullwidth Video</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="cbp-item frame architecture"> <a class="cbp-caption cbp-singlePage" href="ajax/post1.html">
-                                <div class="cbp-caption-defaultWrap"> <img src="/web/public/images/art/pa2.jpg" alt=""> </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <div class="cbp-l-caption-title">Thumbnail Slider</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="cbp-item frame macro"> <a class="cbp-caption cbp-singlePage" href="ajax/post2.html">
-                                <div class="cbp-caption-defaultWrap"> <img src="/web/public/images/art/pm2.jpg" alt=""> </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <div class="cbp-l-caption-title">Fullscreen Gallery</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="cbp-item frame portrait"> <a class="cbp-caption cbp-singlePage" href="ajax/post3.html">
-                                <div class="cbp-caption-defaultWrap"> <img src="/web/public/images/art/pp2.jpg" alt=""> </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <div class="cbp-l-caption-title">Multiple Images</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="cbp-item frame still-life"> <a class="cbp-caption cbp-singlePage" href="ajax/post4.html">
-                                <div class="cbp-caption-defaultWrap"> <img src="/web/public/images/art/ps2.jpg" alt=""> </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <div class="cbp-l-caption-title">Fullwidth Video</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a> </li>
                     </ul>
-                </div>
-                <!-- /.cbp-l-grid-masonry -->
-                <div class="cbp-l-loadMore-button"> <a href="ajax/port1-more.html" class="cbp-l-loadMore-button-link btn">LOAD MORE</a> </div>
-            </div>
-            <!-- /.box -->
-        </section>
-        <!-- /#portfolio -->
 
-        <section id="about">
-            <div class="box">
-                <h2 class="section-title">Who is Behind All This</h2>
-                <div class="row">
-                    <div class="col-md-5 col-md-push-7 col-sm-12">
-                        <figure class="frame"><img src="/web/public/images/art/about.jpg" alt="" /></figure>
+                    <div class="slides-navigation">
+                        <a href="#" class="prev"><i class="fa fa-long-arrow-left fa-2x"></i></a>
+                        <a href="#" class="next"><i class="fa fa-long-arrow-right fa-2x"></i></a>
                     </div>
-                    <!-- /column -->
-                    <div class="col-md-7 col-md-pull-5 col-sm-12">
-                        <p class="lead">Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna. </p>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Fusce dapibus, tellus. </p>
-                        <p>Tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-                        <p>Fermentum massa justo sit amet risus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla.</p>
-                    </div>
-                    <!-- /column -->
+
                 </div>
-                <!-- /.row -->
-                <div class="clearfix"></div>
-                <div class="divide40"></div>
-                <h2 class="section-title">My Services</h2>
-                <div class="divide10"></div>
-                <div class="services-1">
-                    <div class="row">
-                        <div class="col-md-4 col-sm-6">
-                            <div class="icon"> <i class="budicon-heart icn"></i> </div>
-                            <!-- /.icon -->
-                            <div class="text">
-                                <h5>Wedding Photography</h5>
-                                <p>Nulla vitae libero, a pharetra augue. Integer posuere a ante venenatis condimentum. Donec id elit non mi.</p>
-                            </div>
-                            <!-- /.text -->
-                        </div>
-                        <!-- /column -->
-                        <div class="col-md-4 col-sm-6">
-                            <div class="icon"> <i class="budicon-gender-female icn"></i> </div>
-                            <!-- /.icon -->
-                            <div class="text">
-                                <h5>Birth Photography</h5>
-                                <p>Vestibulum id ligula porta euismod semper. Aenean lacinia bibendum vestibulum. Cum sociis natoque.</p>
-                            </div>
-                            <!-- /.text -->
-                        </div>
-                        <!-- /column -->
-                        <div class="col-md-4 col-sm-6">
-                            <div class="icon"> <i class="budicon-meal icn"></i> </div>
-                            <!-- /.icon -->
-                            <div class="text">
-                                <h5>Food Photography</h5>
-                                <p>Aenean eu leo quam. Pellente ornare sem lacinia quam venenatis vestibulum sagittis montes, nascetur ridiculus mus.</p>
-                            </div>
-                            <!-- /.text -->
-                        </div>
-                        <!-- /column -->
-                        <div class="divide30"></div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="icon"> <i class="budicon-bag icn"></i> </div>
-                            <!-- /.icon -->
-                            <div class="text">
-                                <h5>Fashion Photography</h5>
-                                <p>Fusce dapibus commodo, tortor mauris condimentum nibh, ut fermentum massa. Maecenas sed diam eget risus.</p>
-                            </div>
-                            <!-- /.text -->
-                        </div>
-                        <!-- /column -->
-                        <div class="col-md-4 col-sm-6">
-                            <div class="icon"> <i class="budicon-diamond icn"></i> </div>
-                            <!-- /.icon -->
-                            <div class="text">
-                                <h5>Jewelery Photography</h5>
-                                <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis sit amet non magna sit amet.</p>
-                            </div>
-                            <!-- /.text -->
-                        </div>
-                        <!-- /column -->
-                        <div class="col-md-4 col-sm-6">
-                            <div class="icon"> <i class="budicon-cocktail icn"></i> </div>
-                            <!-- /.icon -->
-                            <div class="text">
-                                <h5>Drink Photography</h5>
-                                <p>Morbi leo risus, porta ac consectetur ac at eros. Cras mattis consectetur purus. Cras mattis consectetur purus.</p>
-                            </div>
-                            <!-- /.text -->
-                        </div>
-                        <!-- /column -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /.services -->
+                <a href="#portfolio" class="start transition"><i class="fa fa-angle-down"></i></a>
 
             </div>
-            <!-- /.box -->
-        </section>
-        <!-- /#about -->
 
-        <section id="contact">
-            <div class="box">
-                <h2 class="section-title">Get in Touch with Me</h2>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas sed diam eget risus varius blandit sit amet non magna. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <div class="divide20"></div>
-                <div class="row text-center services-2">
-                    <div class="col-md-3 col-sm-6"> <i class="budicon-map"></i>
-                        <p>Moon Street Light Avenue <br />
-                            14/05 Jupiter, JP 80630</p>
-                    </div>
-                    <div class="col-md-3 col-sm-6"> <i class="budicon-telephone"></i>
-                        <p>00 (123) 456 78 90 <br />
-                            00 (987) 654 32 10 </p>
-                    </div>
-                    <div class="col-md-3 col-sm-6"> <i class="budicon-mobile"></i>
-                        <p>00 (123) 456 78 90 <br />
-                            00 (987) 654 32 10 </p>
-                    </div>
-                    <div class="col-md-3 col-sm-6"> <i class="budicon-mail"></i>
-                        <p> <a class="nocolor" href="mailto:#">manager@email.com</a> <br />
-                            <a class="nocolor" href="mailto:#">asistant@email.com</a> </p>
-                    </div>
+        </div><!--===============intro end ===============-->
+
+
+
+        <div class="sections">
+            <!--=============== navigation ===============-->
+
+            <div class="navigation">
+
+
+                <div class="nav-button transition">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
-                <!-- /.services-2 -->
-                <div class="divide30"></div>
-                <div class="form-container">
-                    <div class="response alert alert-success"></div>
-                    <form class="forms" action="contact/form-handler.php" method="post">
+
+                <div class="inner">
+                    <a href="#intro" class="logo"><img src="/web/images/logotip.png"   alt="" title=""></a>
+
+                    <div class="link-holder" id="nav">
+                        <ul>
+                            <li><a href="#catalog" class="Menu">Каталог компаний</a></li>
+                            <li><a href="#catalog" class="Menu">Акции</a></li>
+                            <li><a href="#catalog" class="Menu">Афиша</a></li>
+                            <li><a href="#catalog" class="Menu">Вакансии</a></li>
+                            <li><a href="#catalog" class="Menu">Объявления</a></li>
+                            <li><a href="#catalog" class="Menu">Новости</a></li>
+                            <li><a href="#contacts" class="scroll-link">Contact</a></li>
+<!--                            <li><a href="blog.html">Blog</a></li>-->
+                        </ul>
+                    </div>
+
+                </div>
+
+
+            </div><!--=============== navigation end ===============-->
+
+        </div>
+
+        <!--=============== section about ===============-->
+
+<!--        <div id="about" class="sections">-->
+<!---->
+<!--            <div class="content">-->
+<!--                <div class="container">-->
+<!--                    <h3 class="title">Welcome to Pompey</h3>-->
+<!--                    <div class="small-separator"></div>-->
+<!--                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum elit et ligula porta lobortis. Aliquam imperdiet sapien quis quam tincidunt pellentesque. Aliquam auctor eget velit et pellentesque. Mauris ornare volutpat est ac elementum. Morbi fermentum massa non cursus laoreet.</p>-->
+<!---->
+<!--                    <a href="#portfolio" class="scroll-to-work transition">View  our work</a>-->
+<!---->
+<!--                </div>-->
+<!---->
+<!--            </div>-->
+<!--        </div><!--=============== section about end ===============-->
+
+<!--        <!--=============== section services ===============-->
+<!---->
+<!--        <div id="services" class="sections">-->
+<!---->
+<!--            <div class="content">-->
+<!--                <div class="container">-->
+<!---->
+<!--                    <h3 class="title">Services</h3>-->
+<!--                    <div class="small-separator"></div>-->
+<!---->
+<!--                    <div class="services-slider">-->
+<!---->
+<!--                        <ul class="slides">-->
+<!---->
+<!--                            <!-- fist-slide -->
+<!---->
+<!--                            <li>-->
+<!---->
+<!--                                <p class="blur transition2 animaper"> " Nulla tincidunt interdum leo. Cras molestie eros velit, vitae malesuada mauris tincidunt ut. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis mollis nec leo at viverra. Ut quis malesuada urna. Nunc cursus aliquet est. " </p>-->
+<!---->
+<!--                            </li>-->
+<!---->
+<!--                            <!-- second-slide -->
+<!---->
+<!--                            <li>-->
+<!---->
+<!--                                <p class="transition">" Aenean at lacus nec odio condimentum egestas. Pellentesque et pellentesque orci. Donec in commodo sapien. Donec id ante odio. Sed ut mollis nisl. Duis eu dapibus leo. Etiam nec nisl non mi aliquam laoreet sed nec nulla. Integer ultrices laoreet urna, et congue magna tempus nec. "</p>-->
+<!---->
+<!--                            </li>-->
+<!---->
+<!--                            <!-- third-slide -->
+<!---->
+<!--                            <li>-->
+<!---->
+<!--                                <p class="transition">" Vestibulum accumsan viverra facilisis. Sed at euismod elit, eu convallis felis. Pellentesque pretium tellus non nisl placerat posuere. Integer velit dolor, porta ut pretium vitae, adipiscing vitae elit. Maecenas condimentum justo mattis condimentum iaculis."</p>-->
+<!---->
+<!--                            </li>-->
+<!---->
+<!---->
+<!--                        </ul>-->
+<!---->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="clear"></div>-->
+<!---->
+<!--                    <div class="row-services">-->
+<!---->
+<!--                        <a name="0" class="animbox  transition">-->
+<!--                            <i class="fa fa-camera"></i>-->
+<!--                            <span class="services-name">Photo</span>-->
+<!--                            <span class="services-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ornare sem sit.</span>-->
+<!--                        </a>-->
+<!--                        <a name="1" class="animbox act-ser transition">-->
+<!--                            <i class="fa fa-rocket"></i>-->
+<!--                            <span class="services-name">Seo</span>-->
+<!--                            <span class="services-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ornare sem sit. </span>-->
+<!--                        </a>-->
+<!--                        <a name="2"  class="animbox transition">-->
+<!--                            <i class="fa fa-desktop"></i>-->
+<!--                            <span class="services-name">Design</span>-->
+<!--                            <span class="services-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ornare sem sit. </span>-->
+<!--                        </a>-->
+<!---->
+<!--                    </div>-->
+<!---->
+<!--                </div>-->
+<!---->
+<!--            </div>-->
+<!--        </div><!--=============== section services end ===============-->
+
+        <!--=============== Категории ===============-->
+
+
+        <div id="portfolio" class="sections">
+
+            <div class="content">
+
+                <div class="container">
+
+                    <h3 class="title" style="color:#fff">Выберите категорию</h3>
+                    <div class="small-separator"></div>
+
+                    <!-- portfolio filters -->
+
+                    <div id="options" class="clear">
+
+                        <ul id="filters" class="option-set" data-option-key="filter">
+
+                            <li class="filter" data-filter="category_1">Авто, мото </li>
+                            <li class="filter" data-filter="category_1">Бизнес и финансы </li>
+                            <li class="filter" data-filter="category_1">Бытовой сервис, ремонт </li>
+                            <li class="filter" data-filter="category_1">Гостиницы, туризм </li>
+                            <li class="filter" data-filter="category_1">Государство, общество </li>
+                            <li class="filter" data-filter="category_1">Промышленность </li>
+                            <li class="filter" data-filter="category_1">Здоровье и красота </li>
+                            <li class="filter" data-filter="category_1">Кафе, бары, рестораны </li>
+                            <li class="filter" data-filter="category_1">Культура и искусство </li>
+                            <li class="filter" data-filter="category_1">Магазины </li>
+                            <li class="filter" data-filter="category_1">Образование, курсы </li>
+                            <li class="filter" data-filter="category_1">Недвижимость </li>
+                            <li class="filter" data-filter="category_1">Полезные телефоны </li>
+                            <li class="filter" data-filter="category_1">Развлечения и досуг </li>
+                            <li class="filter" data-filter="category_1">Строительство и ремонт </li>
+                            <li class="filter" data-filter="category_1">Такси и перевозки </li>
+                            <li class="filter" data-filter="category_1">Услуги </li>
+                            <li class="filter" data-filter="category_1">Реклама и интернет </li>
+
+                        </ul>
+
+                    </div>
+
+<!--                    <!-- ajax-section -->
+<!---->
+<!--                    <div class="clear"></div>-->
+<!--                    <div id="ajax-section">-->
+<!--                        <div id="loader"></div>-->
+<!--                        <div id="ajax-content-outer">-->
+<!--                            <div id="ajax-content-inner"></div>-->
+<!--                        </div>-->
+<!--                        <div id="project-navigation">-->
+<!--                            <ul>-->
+<!--                                <li id="prevProject"><a href="#"><i class="fa fa-angle-left"></i> </a></li>-->
+<!--                                <li id="nextProject"><a href="#"><i class="fa fa-angle-right"></i> </a></li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                        <div id="closeProject">-->
+<!--                            <a href="#/"><i class="fa fa-times"></i></a>-->
+<!--                        </div>-->
+<!--                    </div><!-- ajax-section end -->
+<!---->
+<!--                    <!-- Projects links -->
+<!---->
+<!--                    <div class="aih">-->
+<!--                        <div id="scroll-el"></div>-->
+<!---->
+<!--                        <ul id="folio_container">-->
+<!---->
+<!--                            <!-- 1 project - ajax -->
+<!---->
+<!--                            <li class="box grid-2  mix category_1 mix_all">-->
+<!--                                <a href="#!projects/project-1.html" class="transition ajax-project">-->
+<!--                                    <img src="/web/images/folio/thumbs/1.jpg" class="respimg" alt="" title="">-->
+<!--                                    <span class="folio-overlay"></span>-->
+<!--                                    <div class="folio-name grid1 clear">-->
+<!--                                        <div class="folio-icon"><i class="fa fa-briefcase"></i></div>-->
+<!---->
+<!--                                        <h4>Vestibulum</h4>-->
+<!--                                        <h6>ajax page</h6>-->
+<!---->
+<!--                                    </div>-->
+<!--                                </a>-->
+<!---->
+<!--                            </li>-->
+<!---->
+<!--                            <!-- 2 project - ajax -->
+<!---->
+<!--                            <li class="box grid-2 mix category_4 mix_all">-->
+<!--                                <a href="#!projects/project-2.html" class="transition ajax-project">-->
+<!--                                    <img src="/web/images/folio/thumbs/1.jpg" class="respimg" alt="" title="">-->
+<!--                                    <span class="folio-overlay"></span>-->
+<!--                                    <div class="folio-name  clear">-->
+<!--                                        <div class="folio-icon"><i class="fa fa-film"></i></div>-->
+<!---->
+<!--                                        <h4>Phasellus</h4>-->
+<!--                                        <h6>ajax page</h6>-->
+<!---->
+<!--                                    </div>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!---->
+<!--                            <!-- 3 project - single page -->
+<!---->
+<!--                            <li class="box grid-2  mix category_3 mix_all">-->
+<!--                                <a href="single-portfolio.html" class="transition">-->
+<!--                                    <img src="/web/images/folio/thumbs/1.jpg" class="respimg" alt="" title="">-->
+<!--                                    <span class="folio-overlay"></span>-->
+<!--                                    <div class="folio-name  clear">-->
+<!--                                        <div class="folio-icon"><i class="fa fa-desktop"></i></div>-->
+<!--                                        <h4>Mauris</h4>-->
+<!--                                        <h6>single page</h6>-->
+<!--                                    </div>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!---->
+<!--                            <!-- 4 project - youtube  video -->
+<!---->
+<!--                            <li class="box grid-2  mix category_4 category_3 mix_all">-->
+<!--                                <a href="http://www.youtube.com/watch?v=pBJEislqmkU" class="transition popup-youtube">-->
+<!--                                    <img src="/web/images/folio/thumbs/1.jpg" class="respimg" alt="" title="">-->
+<!--                                    <span class="folio-overlay"></span>-->
+<!--                                    <div class="folio-name clear">-->
+<!--                                        <div class="folio-icon"><i class="fa fa-film"></i></div>-->
+<!---->
+<!--                                        <h4>Vivamus gravida</h4>-->
+<!--                                        <h6>youtube  video</h6>-->
+<!---->
+<!--                                    </div>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!---->
+<!--                            <!-- 5 project - single image -->
+<!---->
+<!--                            <li class="box grid-2 mix category_2 mix_all">-->
+<!--                                <a href="/web/images/folio/thumbs/1.jpg" class="transition image-popup">-->
+<!--                                    <img src="/web/images/folio/thumbs/1.jpg" class="respimg" alt="" title="">-->
+<!--                                    <span class="folio-overlay"></span>-->
+<!--                                    <div class="folio-name clear">-->
+<!--                                        <div class="folio-icon"><i class="fa fa-camera"></i></div>-->
+<!---->
+<!--                                        <h4>Aliquam</h4>-->
+<!--                                        <h6>single image</h6>-->
+<!---->
+<!--                                    </div>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!---->
+<!--                            <!-- 6 project - vimeo  video -->
+<!---->
+<!--                            <li class="box grid-2 mix category_2 category_1 mix_all">-->
+<!--                                <a href="http://vimeo.com/64128885" class="transition popup-vimeo">-->
+<!--                                    <img src="/web/images/folio/thumbs/1.jpg" class="respimg" alt="" title="">-->
+<!--                                    <span class="folio-overlay"></span>-->
+<!--                                    <div class="folio-name clear">-->
+<!--                                        <div class="folio-icon"><i class="fa fa-briefcase"></i></div>-->
+<!---->
+<!--                                        <h4>Fusce</h4>-->
+<!--                                        <h6>vimeo  video</h6>-->
+<!---->
+<!--                                    </div>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!---->
+<!--                        </ul>-->
+<!---->
+<!--                    </div>-->
+
+
+                    <div class="subcribe"><!-- subcribe -->
+
+                        <h3>Subcribe</h3>
+
                         <fieldset>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-row text-input-row name-field">
-                                        <label>Name</label>
-                                        <input type="text" name="name" class="text-input defaultText required"/>
-                                    </div>
-                                    <div class="form-row text-input-row email-field">
-                                        <label>Email</label>
-                                        <input type="text" name="email" class="text-input defaultText required email"/>
-                                    </div>
-                                    <div class="form-row text-input-row subject-field">
-                                        <label>Subject</label>
-                                        <input type="text" name="subject" class="text-input defaultText"/>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 lp5">
-                                    <div class="form-row text-area-row">
-                                        <label>Message</label>
-                                        <textarea name="message" class="text-area required"></textarea>
-                                    </div>
-                                    <div class="form-row hidden-row">
-                                        <input type="hidden" name="hidden" value="" />
-                                    </div>
-                                    <div class="nocomment">
-                                        <label for="nocomment">Leave This Field Empty</label>
-                                        <input id="nocomment" value="" name="nocomment" />
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="button-row pull-right">
-                                        <input type="submit" value="Send Message" name="submit" class="btn btn-submit bm0" />
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 lp5">
-                                    <div class="button-row pull-left">
-                                        <input type="reset" value="Clear Message" name="reset" class="btn btn-submit bm0" />
-                                    </div>
-                                </div>
-                                <input type="hidden" name="v_error" id="v-error" value="Required" />
-                                <input type="hidden" name="v_email" id="v-email" value="Enter a valid email" />
-                            </div>
+                            <form class="subscriptionForm" method="post">
+                                <input id="subscriptionForm" class="inputForm" type="text" value="Enter Your Email Address" onFocus="if (this.value=='Enter Your Email Address') this.value=''" onBlur="if (this.value==''){this.value='Enter Your Email Address'}" />
+                                <input type="submit" id="submitButton" class="transition" value="Send">
+                            </form>
+
+                            <div id="success">Thanks for your subscription</div>
+                            <div id="error">Please enter a valid email address</div>
+
                         </fieldset>
-                    </form>
+
+                    </div><!-- subcribe end-->
+
                 </div>
-                <!-- /.form-container -->
+            </div>
+        </div><!--=============== section portfolio end ===============-->
+
+        <!--=============== section order ===============-->
+
+        <div id="order" class="sections">
+            <div class="content">
+                <div class="container">
+                    <div class="order-block">
+                        <h3>Ready to <span>order</span> your project?</h3>
+                        <a href="#contacts" class="transition">Get in touch</a>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div><!--=============== section order end ===============-->
+
+        <!--=============== section testimonials ===============-->
+
+        <div id="testimonials" class="sections bg">
+
+            <div class="overlay"></div>
+
+            <div class="content">
+
+                <div class="container">
+
+                    <h3 class="title" style="color:#fff;">testimonials</h3>
+                    <div class="small-separator"></div>
+
+                    <div class="testimonials-slider">
+
+                        <ul class="slides">
+
+                            <!-- fist-slide -->
+
+                            <li>
+
+                                <p class="blur transition2 animaper"> " Nulla tincidunt interdum leo. Cras molestie eros velit, vitae malesuada mauris tincidunt ut. Interdum et malesuada fames ac ante " </p>
+
+                            </li>
+
+                            <!-- second-slide -->
+
+                            <li>
+
+                                <p class="transition">" Aenean at lacus nec odio condimentum egestas. Pellentesque et pellentesque orci. Donec in commodo sapien. Donec id ante odio.  "</p>
+
+                            </li>
+
+                            <!-- third-slide -->
+
+                            <li>
+
+                                <p class="transition">" Vestibulum accumsan viverra facilisis. Sed at euismod elit, eu convallis felis. Pellentesque pretium tellus non nisl placerat posuere. "</p>
+
+                            </li>
+
+                            <!-- four-slide -->
+
+                            <li>
+
+                                <p class="transition">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ornare sem sit amet mauris bibendum. Maecenas condimentum justo mattis condimentum iaculis."</p>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <div class="row">
+
+                        <a name="0" class="animbox act-test transition"><img src="/web/images/clients/1.png" alt="" class="respimg"></a>
+                        <a name="1" class="animbox transition"><img src="/web/images/clients/3.png" alt="" class="respimg"></a>
+                        <a name="2"  class="animbox transition"><img src="/web/images/clients/4.png" alt="" class="respimg"></a>
+                        <a name="3"  class="animbox transition"><img src="/web/images/clients/5.png" alt="" class="respimg"></a>
+
+                    </div>
+
+
+                </div>
 
             </div>
-            <!-- /.box -->
-        </section>
-        <!-- /#contact -->
 
-        <footer class="footer box">
-            <p class="pull-left">© 2015 Lumos. All rights reserved. Theme by <a href="http://elemisfreebies.com">elemis</a>.</p>
-            <ul class="social pull-right">
-                <li><a href="#"><i class="icon-s-rss"></i></a></li>
-                <li><a href="#"><i class="icon-s-twitter"></i></a></li>
-                <li><a href="#"><i class="icon-s-facebook"></i></a></li>
-                <li><a href="#"><i class="icon-s-dribbble"></i></a></li>
-                <li><a href="#"><i class="icon-s-pinterest"></i></a></li>
-                <li><a href="#"><i class="icon-s-instagram"></i></a></li>
-                <li><a href="#"><i class="icon-s-vimeo"></i></a></li>
-            </ul>
-            <div class="clearfix"></div>
-        </footer>
-        <!-- /footer -->
+        </div><!--=============== section testimonials end ===============-->
 
-    </div>
-    <!-- /.container -->
-</div>
-<!-- /.body-wrapper -->
+        <!--=============== section team ===============-->
+
+        <div id="team" class="sections">
+            <div class="content">
+                <div class="container">
+                    <h3 class="title">Team</h3>
+                    <div class="small-separator"></div>
+
+                    <div id="team-carusel" class="owl-carousel">
+
+                        <!-- 1-mem -->
+
+                        <div class="item">
+                            <div class="team-member">
+
+                                <a href="/web/images/photos/1.jpg" class="team-img image-popup">
+                                    <img src="/web/images/photos/1.jpg"  class="respimg transition" alt="">
+                                </a>
+
+                                <h3>Antony Fozborn<span></span></h3>
+                                <h4>Creative Director / Art</h4>
+                                <p>Sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore. </p>
+                                <div class="team-social">
+                                    <a href="#" class="transition"><i class="fa fa-envelope"></i></a>
+                                    <a href="#" class="transition"><i class="fa fa-facebook"></i></a>
+                                    <a href="#" class="transition"><i class="fa fa-twitter"></i></a>
+                                    <a href="#" class="transition"><i class="fa fa-google-plus"></i></a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- 2-mem -->
+
+                        <div class="item">
+                            <div class="team-member">
+
+                                <a href="/web/images/photos/1.jpg" class="team-img image-popup">
+                                    <img src="/web/images/photos/1.jpg"  class="respimg transition" alt="">
+                                </a>
+
+                                <h3>David Sails<span></span></h3>
+                                <h4>Photographer / Designer</h4>
+                                <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas faucibus mollis interdum.</p>
+                                <div class="team-social">
+                                    <a href="#" class="transition"><i class="fa fa-twitter"></i></a>
+                                    <a href="#" class="transition"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#" class="transition"><i class="fa fa-linkedin"></i></a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- 3-mem -->
+
+                        <div class="item">
+                            <div class="team-member">
+
+                                <a href="/web/images/photos/1.jpg" class="team-img image-popup">
+                                    <img src="/web/images/photos/1.jpg"  class="respimg transition" alt="">
+                                </a>
+
+                                <h3>Lisa Lee<span></span></h3>
+                                <h4>Content Manager</h4>
+                                <p>Ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                                <div class="team-social">
+                                    <a href="#" class="transition"><i class="fa fa-facebook"></i></a>
+                                    <a href="#" class="transition"><i class="fa fa-twitter"></i></a>
+                                    <a href="#" class="transition"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#" class="transition"><i class="fa fa-linkedin"></i></a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- 4-mem -->
+
+                        <div class="item">
+                            <div class="team-member">
+
+                                <a href="/web/images/photos/1.jpg" class="team-img image-popup">
+                                    <img src="/web/images/photos/1.jpg"  class="respimg transition" alt="">
+                                </a>
+
+                                <h3>Marta Smith<span></span></h3>
+                                <h4>Web Developer</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ornare sem sit amet mauris bibendum.</p>
+                                <div class="team-social">
+                                    <a href="#" class="transition"><i class="fa fa-envelope"></i></a>
+                                    <a href="#" class="transition"><i class="fa fa-facebook"></i></a>
+                                    <a href="#" class="transition"><i class="fa fa-twitter"></i></a>
+                                    <a href="#" class="transition"><i class="fa fa-linkedin"></i></a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>	<!--=============== section team end ===============-->
+
+        <!--=============== section contacts ===============-->
+        <div id="contacts" class="sections">
+
+            <div class="overlay"></div>
+
+            <div class="content">
+
+                <div class="container">
+
+                    <h3 class="title">Contact</h3>
+                    <div class="small-separator"></div>
+
+                    <p class="white">Vestibulum accumsan viverra facilisis. Sed at euismod elit, eu convallis felis. Pellentesque pretium tellus non nisl placerat posuere. Integer velit dolor, porta ut pretium vitae, adipiscing vitae elit.  </p>
+
+                    <div class="grid-2">
+                        <div class="contact-details">
+
+                            <h3 class="color-gold">Contact Info</h3>
+                            <ul>
+                                <li><i class="fa fa-mobile"></i><span>+7(111)123456789</span></li>
+                                <li><i class="fa fa-envelope-o"></i><span>yourmail@domain.com</span></li>
+                                <li><i class="fa fa-home"></i><span>Third Main Street, 27th Brooklyn</span></li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="grid-4">
+
+                        <div class="contact-form clear">
+
+                            <fieldset id="contact_form">
+                                <label for="name">
+                                    <input type="text" name="name" id="name" placeholder="Name" />
+                                </label>
+                                <label for="email">
+                                    <input type="text" name="email" class="right" id="email" placeholder="Email" />
+                                </label>
+                                <div class="clear"></div>
+                                <label for="message">
+                                    <textarea name="message"  id="message" placeholder="Message"></textarea>
+                                </label>
+                                <div class="clear"></div>
+
+                                <label>
+                                    <button class="submit_btn transition" id="submit_btn"><i class="fa fa-envelope-o fa-2x"></i></button>
+                                </label>
+
+                                <div id="result"></div>
+
+                            </fieldset>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div><!--=============== section contacts end ===============-->
+
+        <!--=============== section footer ===============-->
+
+        <div id="footer" class="sections ws">
+            <div class="content">
+                <div class="container">
+
+                    <a class="to-top" href="#intro"><i class="fa fa-angle-up transition"></i></a>
+
+                    <div class="clear"></div>
+
+                    <div class="social-list">
+
+                        <ul>
+                            <li><a href="#"  target="_blank" class="transition"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"  target="_blank" class="transition"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"  target="_blank" class="transition"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+
+                    </div>
+
+                    <p>Pompey ©2014  All rights reserved.</p>
+
+                </div>
+
+            </div>
+
+        </div><!--=============== section footer end ===============-->
+
+    </div><!--=============== wrapper end ===============-->
+
+</div><!--=============== main end ===============-->
+
 <?php $this->endBody() ?>
 </body>
 </html>

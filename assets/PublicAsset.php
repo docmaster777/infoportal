@@ -18,28 +18,39 @@ class PublicAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        "web/public/css/bootstrap.min.css",
-        "web/public/css/plugins.css",
-        "web/public/css/prettify.css",
-        "web/public/css/style.css",
-        "web/public/css/color/green.css",
-        "http://fonts.googleapis.com/css?family=Raleway:400,800,700,600,500,300' rel='stylesheet' type='text/css'",
-        "http://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic' rel='stylesheet' type='text/css'",
-        "web/public/type/fontello.css",
-        "web/public/type/budicons.css"
+//        'css/font-awesome.min.css',
+//        'css/normalize.css',
+//        'css/grid.css',
+//        'css/owl.carousel.css',
+//        'css/flexslider.css',
+//        'css/magnific-popup.css',
+//        'css/superslides.css',
+        'css/style.css',
+//        --=============== ie styles  ===============-
+//        'css/ie8.css'
     ];
+    
     public $js = [
-        "web/public/js/jquery.min.js",
-        "web/public/js/bootstrap.min.js",
-        "web/public/js/jquery.themepunch.tools.min.js",
-        "web/public/js/classie.js",
-        "web/public/js/plugins.js",
-        "web/public/js/scripts.js",
-//          $.backstretch(["style/images/art/bg1.jpg"]);
-//        </script>
+        'js/jquery.min.js',
+        'js/jpreloader.min.js',
+        'js/smoothscroll.js',
+        'js/jquery.easing.1.3.js',
+//        'js/superslides.js',
+//        'js/mixitup.js',
+//        'js/jquery.flexslider.js',
+//        'js/jquery.parallax-1.1.3.js',
+//        'js/jquery.scrollTo-1.4.2-min.js',
+//        'js/owl.carousel.min.js',
+//        'js/jquery.nav.js',
+//        'js/fitvids.js',
+//        'js/zoom.js',
+//        'js/jquery.hammer.min.js',
+//        'js/jquery.magnific-popup.min.js',
+        'js/jquery.sticky.js',
+        'js/scripts.js'
     ];
+
     public $depends = [
-//        'yii\web\YiiAsset',
-//        'yii\bootstrap\BootstrapAsset',
+
     ];
 }
