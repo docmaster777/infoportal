@@ -1,0 +1,24 @@
+/*Стили для слайдера*/
+
+.main{
+    max-width: 700px;
+    margin: 20px auto;
+}
+.sl__slide{
+    position: relative;
+}
+
+.sl__text{
+    position: absolute;
+    bottom: 0;
+    background: rgba(89, 89, 89, 0.75);
+    width: 100%;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 1px 1px 1px 1px;
+    padding: 20px 0;
+}
+.sl__zag .sl__desc{
+    margin: 0;
+    padding: 0 10px;
+}
