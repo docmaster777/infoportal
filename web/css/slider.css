@@ -1,9 +1,9 @@
 /*Стили для слайдера*/
 
-.main{
-    max-width: 700px;
-    margin: 20px auto;
-}
+/*.main{*/
+    /*max-width: 700px;*/
+    /*margin: 20px auto;*/
+/*}*/
 .sl__slide{
     position: relative;
 }
