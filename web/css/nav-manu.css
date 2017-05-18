@@ -1,34 +1,37 @@
 ul.nav {
-    position: absolute;
+    position: fixed;
     list-style: none;
     display: block;
     width: 200px;
-    top: 0;
-    left: 4px;
+    right: 0;
+    top: 10px;
     padding: 0 0 60px 0;
-    /*background: url(/web/images/navmenu/shad2.png) no-repeat;*/
     -webkit-background-size: 50% 100%;
 }
 
 li {
-    margin: 5px 0 0 -3px;
+    margin: 5px 0 0 90px;
 }
 
 ul.nav li a {
     -webkit-transition: all 0.5s ease-out;
-    background: rgba(120, 121, 145, 0.76);
-    color: #174867;
+    background: rgba(39, 139, 183, 0.29);
+    color: #fdfeff;
     padding: 7px 15px 7px 15px;
-    -webkit-border-top-right-radius: 10px;
-    -webkit-border-bottom-right-radius: 10px;
-    width: 100px;
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    width: 180px;
     display: block;
     text-decoration: none;
     -webkit-box-shadow: 2px 2px 4px #888;
 }
 
 ul.nav li a:hover {
-    /*background: #fff;*/
-    color: #67a5cd;
-    padding: 7px 2px 7px 20px;
+    color: #fdf9ff;
+    background: rgba(28, 81, 110, 0.29);
+    padding: 7px 2px 7px 10px;
+}
+
+a{
+    width: 100px;
 }

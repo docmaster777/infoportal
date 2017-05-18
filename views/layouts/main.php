@@ -51,7 +51,7 @@ AppAsset::register($this);
 <!--    <nav>-->
     <ul id="navigation" class="nav">
         <li><a href="">Каталог Компаний</a></li>
-        <li><a href="">Акции+</a></li>
+        <li><a href="">Акции</a></li>
         <li><a href="">Афиша</a></li>
         <li><a href="">Вакансии</a></li>
         <li><a href="">Объявления</a></li>
