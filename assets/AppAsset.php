@@ -23,12 +23,14 @@ class AppAsset extends AssetBundle
         'css/slick-theme.css',
         'css/style.css',
         'css/slider.css',
+        'css/nav-manu.css',
 
     ];
     public $js = [
 //        '/web/js/jquery.min.js',
         'js/slick.min.js',
         'js/js.js',
+        'js/navmenu.js',
 
     ];
 //    public $sourcePath =

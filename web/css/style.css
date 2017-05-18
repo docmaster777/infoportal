@@ -5,7 +5,8 @@ html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}artic
 body{
   font: 1em/1.6em sans-serif;
   color: #353535;
-  background: rgba(215, 246, 215, 0.07);
+  background: rgba(246, 181, 203, 0.29);
+  height: 1000px;
 }
 
 a{

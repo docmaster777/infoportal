@@ -1,0 +1,34 @@
+ul.nav {
+    position: absolute;
+    list-style: none;
+    display: block;
+    width: 200px;
+    top: 0;
+    left: 4px;
+    padding: 0 0 60px 0;
+    /*background: url(/web/images/navmenu/shad2.png) no-repeat;*/
+    -webkit-background-size: 50% 100%;
+}
+
+li {
+    margin: 5px 0 0 -3px;
+}
+
+ul.nav li a {
+    -webkit-transition: all 0.5s ease-out;
+    background: rgba(120, 121, 145, 0.76);
+    color: #174867;
+    padding: 7px 15px 7px 15px;
+    -webkit-border-top-right-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    width: 100px;
+    display: block;
+    text-decoration: none;
+    -webkit-box-shadow: 2px 2px 4px #888;
+}
+
+ul.nav li a:hover {
+    /*background: #fff;*/
+    color: #67a5cd;
+    padding: 7px 2px 7px 20px;
+}
