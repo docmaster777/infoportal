@@ -48,7 +48,7 @@ AppAsset::register($this);
 <!--    Конец слайдера-->
 
 <!--    Навигационное меню-->
-<!--    <nav>-->
+
     <ul id="navigation" class="nav">
         <li><a href="">Каталог Компаний</a></li>
         <li><a href="">Акции</a></li>
@@ -57,8 +57,108 @@ AppAsset::register($this);
         <li><a href="">Объявления</a></li>
         <li><a href="">Новости</a></li>
     </ul>
-<!--    </nav>-->
 
+<!--    Категории-->
+    <div id="category">
+        <div class="row">
+            <div class="caption">
+                Выберите категорию
+            </div>
+            <div class="col-cat">
+                <div class="span icon-1">
+                    <div class="text">Авто, мото</div>
+                </div>
+            </div>
+            <div class="col-cat">
+                <div class="span icon-2">
+                    <div class="text">Бизнес и финансы</div>
+                </div>
+            </div>
+            <div class="col-cat">
+                <div class="span icon-3">
+                    <div class="text">Бытовой сервис, ремонт</div>
+                </div>
+            </div>
+            <div class="col-cat">
+                <div class="span icon-4">
+                    <div class="text">Гостиницы, туризм</div>
+                </div>
+            </div>
+            <div class="col-cat">
+                <div class="span icon-5">
+                    <div class="text">Государство, общество</div>
+                </div>
+            </div>
+            <div class="col-cat">
+                <div class="span icon-6">
+                    <div class="text">Промышленность</div>
+                </div>
+            </div>
+            <div class="col-cat">
+                <div class="span icon-7">
+                    <div class="text">Здоровье и красота</div>
+                </div>
+            </div>
+            <div class="col-cat">
+                <div class="span icon-8">
+                    <div class="text">Кафе, бары, рестораны</div>
+                </div>
+            </div>
+            <div class="col-cat">
+                <div class="span icon-9">
+                    <div class="text">Культура и искусство</div>
+                </div>
+            </div>
+            <div class="col-cat">
+                <div class="span icon-10">
+                    <div class="text">Магазины</div>
+                </div>
+            </div>
+            <div class="col-cat">
+                <div class="span icon-11">
+                    <div class="text">Образование, курсы</div>
+                </div>
+            </div>
+            <div class="col-cat">
+                <div class="span icon-12">
+                    <div class="text">Недвижимость</div>
+                </div>
+            </div>
+            <div class="col-cat">
+                <div class="span icon-13">
+                    <div class="text">Полезные телефоны</div>
+                </div>
+            </div>
+            <div class="col-cat">
+                <div class="span icon-14">
+                    <div class="text">Развлечения и досуг</div>
+                </div>
+            </div>
+            <div class="col-cat">
+                <div class="span icon-15">
+                    <div class="text">Строительство и ремонт</div>
+                </div>
+            </div>
+            <div class="col-cat">
+                <div class="span icon-16">
+                    <div class="text">Такси и перевозки</div>
+                </div>
+            </div>
+            <div class="col-cat">
+                <div class="span icon-17">
+                    <div class="text">Услуги</div>
+                </div>
+            </div>
+            <div class="col-cat">
+                <div class="span icon-18">
+                    <div class="text">Реклама и интернет</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+<!--    Конец категорий-->
 <!--    Конец навигационного меню-->
 <!--    --><?php
 //    NavBar::begin([
