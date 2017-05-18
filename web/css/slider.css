@@ -1,11 +1,14 @@
 /*Стили для слайдера*/
 
 .sl{
-    max-width: 1200px;
-    margin: 20px auto;
+    width: 100%;
+    margin: auto;
+
 }
 .sl__slide{
     position: relative;
+    width: 100%;
+    height: 400px;
 }
 
 .sl__text{

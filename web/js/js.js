@@ -1,8 +1,8 @@
 $('.sl').slick({
     autoplay: true,
-    autoplaySpeed: 200,
+    autoplaySpeed: 2000,
     dots: true,
     arrows:false,
     fade:true,
-    pauseOnHover: false,
+    pauseOnHover: false
     });
