@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use yii\db\ActiveRecord;
 use Yii;
 
 /**
@@ -10,7 +11,7 @@ use Yii;
  * @property integer $id
  * @property string $title
  */
-class Category extends \yii\db\ActiveRecord
+class Category extends ActiveRecord
 {
     /**
      * @inheritdoc

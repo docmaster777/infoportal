@@ -122,4 +122,29 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+    public function actionCompanies()
+    {
+        return $this->render('companies');
+    }
+    public function actionShares()
+    {
+        return $this->render('shares');
+    }
+    public function actionAfisha()
+    {
+        return $this->render('afisha');
+    }
+    public function actionVacancies()
+    {
+        return $this->render('vacancies');
+    }
+    public function actionAdt()
+    {
+        return $this->render('adt');
+    }
+    public function actionNews()
+    {
+        return $this->render('news');
+    }
 }

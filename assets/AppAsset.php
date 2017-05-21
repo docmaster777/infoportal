@@ -18,12 +18,11 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-
+        'css/nav-menu.css',
         'css/slick.css',
         'css/slick-theme.css',
         'css/style.css',
         'css/slider.css',
-        'css/nav-manu.css',
 
     ];
     public $js = [

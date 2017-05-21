@@ -1,6 +1,7 @@
 <?php
 
 namespace app\models;
+use yii\db\ActiveRecord;
 
 use Yii;
 use yii\helpers\ArrayHelper;
@@ -22,7 +23,7 @@ use yii\helpers\ArrayHelper;
  * @property ArticleTag[] $articleTags
  * @property Comment[] $comments
  */
-class Article extends \yii\db\ActiveRecord
+class Article extends ActiveRecord
 {
     /**
      * @inheritdoc
