@@ -26,7 +26,11 @@ AppAsset::register($this);
 
 <div class="wrap">
 
-    <div class="headerhome"><?= Html::a('Главная', ['site/index']) ?></div>
+    <div class="headerhome">
+        <?= Html::a('Главная', ['site/index']) ?>
+        <?= Html::a('Вход', ['site/index']) ?>
+        <?= Html::a('Регистрация', ['site/index']) ?>
+    </div>
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
