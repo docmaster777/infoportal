@@ -1,35 +1,30 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Andrey
- * Date: 07.05.2016
- * Time: 10:35
- */
-
 namespace app\components;
 use yii\base\Widget;
-use app\models\Category;
+use app\models\Article;
 
-class MenuWidget extends Widget{
+
+class AdsWidget extends Widget{
 
     public $tpl;
     public $data;
     public $tree;
+    public $image;
     public $menuHtml;
 
-    public function init(){
+    public function init()
+    {
         parent::init();
-        if( $this->tpl === null ){
-            $this->tpl = 'ads';
+        if( $this->data === null )
+        {
+            $this->data = 'Гость';
         }
-        $this->tpl .= '.php';
     }
 
     public function run(){
-        $this->data = Category::find()->indexBy('id')->asArray()->all();
-        $this->tree = $this->getTree();
-        $this->menuHtml = $this->getMenuHtml($this->tree);
-        return $this->menuHtml;
+        $this->data = Article::find()->all();
+        return $this->data;
+
     }
 
     protected function getTree(){
@@ -43,18 +38,18 @@ class MenuWidget extends Widget{
         return $tree;
     }
 
-    protected function getMenuHtml($tree){
+    protected function getMenuHtml($data){
         $str = '';
-        foreach ($tree as $category) {
-            $str .= $this->catToTemplate($category);
+        foreach ($data as $article) {
+            $str .= $this->catToTemplate($article);
         }
         return $str;
     }
 
     protected function catToTemplate($category){
         ob_start();
-        include __DIR__ . '/menu_tpl/' . $this->tpl;
+        include __DIR__ . '/ads/' . $this->tpl;
         return ob_get_clean();
     }
 
-} 
+}

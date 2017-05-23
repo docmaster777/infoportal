@@ -41,14 +41,14 @@ AppAsset::register($this);
 
 <!--    Навигационное меню-->
 
-    <ul id="navigation" class="nav">
-        <li><?= Html::a('Каталог Компаний', ['site/companies']) ?></li>
-        <li><?= Html::a('Акции', ['site/shares']) ?></li>
-        <li><?= Html::a('Афиша', ['site/afisha']) ?></li>
-        <li><?= Html::a('Вакансии', ['site/vacancies']) ?></li>
-        <li><?= Html::a('Объявления', ['site/adt']) ?></li>
-        <li><?= Html::a('Новости', ['site/news']) ?></li>
-    </ul>
+<!--    <ul id="navigation" class="nav">-->
+<!--        <li>--><?//= Html::a('Каталог Компаний', ['site/companies']) ?><!--</li>-->
+<!--        <li>--><?//= Html::a('Акции', ['site/shares']) ?><!--</li>-->
+<!--        <li>--><?//= Html::a('Афиша', ['site/afisha']) ?><!--</li>-->
+<!--        <li>--><?//= Html::a('Вакансии', ['site/vacancies']) ?><!--</li>-->
+<!--        <li>--><?//= Html::a('Объявления', ['site/adt']) ?><!--</li>-->
+<!--        <li>--><?//= Html::a('Новости', ['site/news']) ?><!--</li>-->
+<!--    </ul>-->
 <!--    Конец навигационного меню-->
 </div>
 

@@ -2,12 +2,15 @@
 
 namespace app\controllers;
 
+use app\models\Category;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Article;
+
 
 class SiteController extends Controller
 {
@@ -60,7 +63,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $article = Article::find()->asArray()->all();
+//        return $this->render('index', ['article' => $article]);
+        return $this->render('index', compact('article'));
     }
 
     /**
