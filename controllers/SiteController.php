@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Category;
 use Yii;
+use yii\data\Pagination;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -61,11 +62,21 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
+    public function actionShow()
     {
-        $article = Article::find()->asArray()->all();
-//        return $this->render('index', ['article' => $article]);
-        return $this->render('index', compact('article'));
+        $query = Article::find();
+        $count = $query ->count();
+        $pagination = new Pagination(['totalCount' => $count]);
+        $articles = $query->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
+
+        $articles = Article::find()->asArray()->all();
+
+        return $this->render('Show', [
+            'articles' => $articles,
+            'pagination' => $pagination
+        ]);
     }
 
     /**
@@ -118,6 +129,11 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionIndex()
+    {
+        $arts = Article::find()->orderBy(['id' => SORT_DESC])->all();
+        return $this->render('index', compact('arts'));
+    }
     /**
      * Displays about page.
      *
@@ -146,7 +162,8 @@ class SiteController extends Controller
     }
     public function actionAdt()
     {
-        return $this->render('adt');
+        $arts = Article::find()->all();
+        return $this->render('adt', compact('arts'));
     }
     public function actionNews()
     {

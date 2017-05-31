@@ -1,7 +1,13 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: 555
- * Date: 21.05.2017
- * Time: 17:47
- */
+<?php use yii\helpers\Html;
+?>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<?php foreach ($arts as $art) {
+    echo $art->title;
+    echo Html::img("/web/uploads/{$art->image}", ['width'=>200]);
+} ?>
