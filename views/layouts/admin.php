@@ -30,6 +30,7 @@ AppAsset::register($this);
         <li><?= Html::a('Стаьи', ['/admin/article/index']) ?></li>
         <li><?= Html::a('Категории', ['/admin/category/index']) ?></li>
         <li><?= Html::a('Теги', ['/admin/tag/index']) ?></li>
+        <li><?= Html::a('Города', ['/admin/cities/index']) ?></li>
         <li><?= Html::a('Login', ['/site/login']) ?></li>
     </ul>
 </div>

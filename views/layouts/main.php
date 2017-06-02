@@ -3,6 +3,7 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use app\components\CityWidget;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -49,9 +50,10 @@ AppAsset::register($this);
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Выберите город <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Купянск</a></li>
-                                <li><a href="#">Двуречное</a></li>
-                                <li><a href="#">Шевченково</a></li>
+
+                                <li><a href="#"></a></li>
+<!--                                <li><a href="#">Двуречное</a></li>-->
+<!--                                <li><a href="#">Шевченково</a></li>-->
                                 <li><a href="#">Чугуев</a></li>
 <!--                                <li class="divider"></li>-->
 <!--                                <li><a href="#">Отдельная ссылка</a></li>-->
@@ -89,6 +91,7 @@ AppAsset::register($this);
 
 <!--        Конец навигационного меню-->
         <?= $content ?>
+        <?=CityWidget::widget(['city' => 'city'])?>
     </div>
 
 

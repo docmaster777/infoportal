@@ -53,6 +53,8 @@ use yii\widgets\LinkPager;
 <!--    </div>-->
 <!--</nav>-->
 
+
+
     <div class="row">
         <?=MenuWidget::widget(['tpl'=>'menu'])?>
     </div>

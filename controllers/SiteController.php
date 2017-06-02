@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Category;
+use app\models\Cities;
 use Yii;
 use yii\data\Pagination;
 use yii\filters\AccessControl;
@@ -132,7 +133,12 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $arts = Article::find()->orderBy(['id' => SORT_DESC])->all();
-        return $this->render('index', compact('arts'));
+        $city = Cities::find()->all();
+        return $this->render('index', compact('arts', 'city'));
+
+
+
+
     }
     /**
      * Displays about page.
