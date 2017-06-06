@@ -1,7 +1,6 @@
 <?php
 
 namespace app\models;
-use yii\db\ActiveRecord;
 
 use Yii;
 use yii\helpers\ArrayHelper;
@@ -12,6 +11,7 @@ use yii\helpers\ArrayHelper;
  * @property integer $id
  * @property string $title
  * @property string $description
+ * @property string $adress
  * @property string $content
  * @property string $date
  * @property string $image
@@ -23,7 +23,7 @@ use yii\helpers\ArrayHelper;
  * @property ArticleTag[] $articleTags
  * @property Comment[] $comments
  */
-class Article extends ActiveRecord
+class Article extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
@@ -39,16 +39,10 @@ class Article extends ActiveRecord
     public function rules()
     {
         return [
-
-                [['title'], 'required'],
-                [['title', 'description', 'content'], 'string'],
-                [['date'], 'date', 'format' => 'php:Y-m-d'],
-                [['date'], 'default', 'value' => date ('Y-m-d')],
-                [['title'], 'string', 'max' => 255]
-//            [['description', 'content'], 'string'],
-//            [['date'], 'safe'],
-//            [['viewed', 'user_id', 'status', 'category_id'], 'integer'],
-//            [['title', 'image'], 'string', 'max' => 255],
+            [['description', 'content'], 'string'],
+            [['date'], 'safe'],
+            [['viewed', 'user_id', 'status', 'category_id'], 'integer'],
+            [['title', 'adress', 'image'], 'string', 'max' => 255],
         ];
     }
 
@@ -61,6 +55,7 @@ class Article extends ActiveRecord
             'id' => 'ID',
             'title' => 'Title',
             'description' => 'Description',
+            'adress' => 'Adress',
             'content' => 'Content',
             'date' => 'Date',
             'image' => 'Image',
@@ -71,6 +66,9 @@ class Article extends ActiveRecord
         ];
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function saveImage($filename)
     {
         $this->image = $filename;
@@ -104,11 +102,11 @@ class Article extends ActiveRecord
 
     public  function saveCategory($categoty_id){
         $category = Category::findOne($categoty_id);
-            if ($category != null)
-            {
-                $this->link('category', $category);
-                return true;
-            }
+        if ($category != null)
+        {
+            $this->link('category', $category);
+            return true;
+        }
     }
 
     public function getTags()
@@ -139,4 +137,6 @@ class Article extends ActiveRecord
     {
         ArticleTag::deleteAll(['article_id'=>$this->id]);
     }
+
+
 }
