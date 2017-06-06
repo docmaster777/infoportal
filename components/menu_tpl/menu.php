@@ -6,5 +6,6 @@
 
 
 <div class="col-md-2 col-cat">
-    <?=$category['title']?>
+    <a href="<?=\yii\helpers\Url::to(['site/companies'])  ?>"><?=$category['title']?></a>
 </div>
+

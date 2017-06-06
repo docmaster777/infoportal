@@ -1,5 +1,6 @@
 <?php
 use app\components\AdsWidget;
+use app\components\CategoryWidget;
 use app\components\MenuWidget;
 use yii\helpers\Html;
 use yii\widgets\LinkPager;
@@ -53,10 +54,8 @@ use yii\widgets\LinkPager;
 <!--    </div>-->
 <!--</nav>-->
 
-
-
     <div class="row">
-        <?=MenuWidget::widget(['tpl'=>'menu'])?>
+        <?= CategoryWidget::widget()?>
     </div>
 <!--    Конец категорий-->
 

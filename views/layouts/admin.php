@@ -27,8 +27,9 @@ AppAsset::register($this);
 <div class="admin">
     <ul id="admin">
         <li><?= Html::a('Главная', ['/site/index']) ?></li>
-        <li><?= Html::a('Стаьи', ['/admin/article/index']) ?></li>
+        <li><?= Html::a('Статьи', ['/admin/article/index']) ?></li>
         <li><?= Html::a('Категории', ['/admin/category/index']) ?></li>
+        <li><?= Html::a('Подкатегории', ['/admin/subcategories/index']) ?></li>
         <li><?= Html::a('Теги', ['/admin/tag/index']) ?></li>
         <li><?= Html::a('Города', ['/admin/cities/index']) ?></li>
         <li><?= Html::a('Login', ['/site/login']) ?></li>

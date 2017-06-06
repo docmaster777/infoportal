@@ -3,6 +3,7 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use app\components\CategoryWidget;
 use app\components\CityWidget;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
@@ -24,6 +25,9 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkwZMtjcI4gjBj9l0WbMj0XAEPrB4RW84&callback=initMap">
+</script>
 
     <div class="container">
 
@@ -39,7 +43,8 @@ AppAsset::register($this);
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Brand</a>
+<!--                    <a class="navbar-brand" href="#">Brand</a>-->
+                    <a class="navbar-brand" href="<?=\yii\helpers\Url::to(['site/index'])?>">Brand</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -47,18 +52,13 @@ AppAsset::register($this);
                     <ul class="nav navbar-nav navbar-right">
 
 
-                        <li class="dropdown">
+                        <li class="dropdown bg-dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Выберите город <b class="caret"></b></a>
                             <ul class="dropdown-menu">
 
-                                <li><a href="#"></a></li>
-<!--                                <li><a href="#">Двуречное</a></li>-->
-<!--                                <li><a href="#">Шевченково</a></li>-->
-                                <li><a href="#">Чугуев</a></li>
-<!--                                <li class="divider"></li>-->
-<!--                                <li><a href="#">Отдельная ссылка</a></li>-->
-<!--                                <li class="divider"></li>-->
-<!--                                <li><a href="#">Еще одна отдельная ссылка</a></li>-->
+                    <?=CityWidget::widget(['city' => 'city'])?>
+
+
                             </ul>
                         </li>
                         <li><a href="#">Вход</a></li>
@@ -90,8 +90,10 @@ AppAsset::register($this);
         </nav>
 
 <!--        Конец навигационного меню-->
+        <div class="content">
         <?= $content ?>
-        <?=CityWidget::widget(['city' => 'city'])?>
+
+        </div>
     </div>
 
 

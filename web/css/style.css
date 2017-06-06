@@ -13,6 +13,16 @@ body{
 .container-fluid{
   background: rgba(97, 224, 171, 0.22);
 }
+.navbar-nav > li > .dropdown-menu{
+  background-color: rgba(215, 243, 232, 1);
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+/*div .collapse .navbar-collapse >ul > li .open{*/
+  /*background-color: rgba(41, 254, 232, 0.47);*/
+/*}*/
+
 /*Навигационное меню конец*/
 h3.ads{
   margin: 20px 0;
@@ -147,4 +157,59 @@ img{
 .col-cat:hover {
   color: #fdf9ff;
   background: rgba(82, 159, 255, 0.48);
+}
+
+div .content{
+  padding: 60px 0 0 0;
+}
+
+/*Страница категорий*/
+.navbar-collapse-catalog{
+  padding-right: 0;
+  padding-left: 0;
+  position: fixed;
+  width: 280px;
+  top: 50px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #D8E0E6;
+  z-index: 15;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.category-group{
+  list-style: none;
+  padding: 30px;
+  margin: 0;
+}
+/*.one-company{*/
+  /*width: 100%;*/
+  /*padding: 0;*/
+  /*display: block;*/
+  /*float: none;*/
+/*}*/
+
+.col-com.lineItem {
+  width: 100%;
+  padding: 0;
+  display: block;
+  float: none;
+}
+
+.item .item-company-map{
+  cursor: pointer;
+  border-radius: 0;
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+  border: 0;
+  padding: 25px 20px;
+  border-top: 1px solid #e6e6e6;
+}
+.one-company{
+  background-color: #c5ffac;
+  max-width: 300px;
+  margin-left: -213px;
 }

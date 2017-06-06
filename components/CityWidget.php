@@ -11,14 +11,10 @@ class CityWidget extends Widget
 {
     public $city;
 
-    public function init()
-    {
-        parent::init();
-        if ($this->city === null) $this->city = 'Нет городов';
-    }
 
     public function run(){
 
-        return $this->render('city', ['city' => $this->city]);
+        $cities = Cities::find()->all();
+        return $this->render('city', compact('cities'));
     }
 }

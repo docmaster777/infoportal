@@ -30,6 +30,8 @@ class AppAsset extends AssetBundle
         'js/slick.min.js',
         'js/js.js',
         'js/navmenu.js',
+//        'async defer https://maps.googleapis.com/maps/api/js?key=AIzaSyBkwZMtjcI4gjBj9l0WbMj0XAEPrB4RW84&callback=initMap',
+        'js/map.js',
 
     ];
 //    public $sourcePath =
