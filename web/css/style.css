@@ -245,16 +245,6 @@ div .content{
   height: 420px;
   margin: 20px 0 0 20px ;
 }
-.img-content{
-  /*width: 135px;*/
-  /*height: 135px;*/
-  /*display: table-cell;*/
-  /*vertical-align: middle;*/
-  /*text-align: center;*/
-  /*line-height: 135px;*/
-  /*margin: 0px;*/
-  /*padding: 0px;*/
-}
 
 .hr-color{
   color: #000;
@@ -271,7 +261,30 @@ div .content{
   font-weight:bold
 }
 .contact{
-  background-color: #8bffa5;
-  /*width: 100px;*/
-  min-height: 800px;
+  background-color: rgba(139, 255, 201, 0.39);
+  min-height: 400px;
+  margin: 65px 0 0 0;
+}
+
+.icon-call-end {
+  padding: 0 15px 0 0;
+}
+.tell-number {
+  padding-left: 30px;
+}
+.addres-number{
+  padding-left: 30px;
+}
+.link{
+  padding-left: 20px;
+}
+.clock{
+  padding-left: 20px;
+}
+.icon-map{
+  padding: 0 15px 20px 0;
+}
+
+.comp-inf-right{
+margin: 20px 0 0 20px;
 }

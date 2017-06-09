@@ -24,7 +24,6 @@ use yii\helpers\Html;use yii\helpers\Url;
 
                     <?php endforeach; ?>
 
-                    <hr class="hr-color">
 
                     <div class="companies-text">
                         <h2><?= Html::tag('div', Html::encode($art->title),['class' => 'title-company-one']);?></h2>
@@ -44,11 +43,27 @@ use yii\helpers\Html;use yii\helpers\Url;
 
         <div class="col-md-4 contact">
             <div class="comp-inf-right">
-                <div class="company-inf-col">
-                    tel
+                <div class="company-inf-col1">
+                    <span class="icon-call-end"></span><span class="tell">Телефоны:</span>
+                    <p><span class="tell-number">0660211438</span></p>
                 </div>
 
-                <?= Html::tag('div', Html::encode($art->adress),['class' => 'address-company-one']);?>
+                <div class="company-inf-col2">
+                    <span class="icon-map"></span><span class="addres">Адрес:</span>
+                    <p><?= Html::tag('span', Html::encode($art->adress),['class' => 'addres-number']);?></p>
+                </div>
+
+                <div class="company-inf-col3">
+                    <span class="icon-globe"></span><span class="link">Ссылки:</span>
+                    <p><?= Html::tag('span', Html::encode($art->adress),['class' => 'addres-number']);?></p>
+                </div>
+
+                <div class="company-inf-col4">
+                    <span class="icon-clock"></span><span class="clock">График работы:</span>
+                    <p><?= Html::tag('span', Html::encode($art->adress),['class' => 'addres-number']);?></p>
+                    <p></p><span class=" ">Рабочии дни:</span></p>
+                    <p><span class=" ">Выходной:</span></p>
+                </div>
             </div>
 
         </div>
