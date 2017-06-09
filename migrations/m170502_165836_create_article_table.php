@@ -24,6 +24,9 @@ class m170502_165836_create_article_table extends Migration
             'user_id' => $this->integer(),
             'status' => $this->integer(),
             'category_id' =>$this->integer(),
+            'references' => $this->text(),
+            'working_days' => $this->text(),
+            'weekend' => $this->text(),
 
         ]);
     }

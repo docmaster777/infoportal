@@ -256,6 +256,13 @@ div .content{
   font-size: 15px;
   padding: 5px 5px 5px 5px ;
 }
+
+.description-company-one{
+  text-align: center;
+  padding: 30px 0 10px 0;
+  /*margin-top: 10px;*/
+}
+
 .title-company-one {
   text-align: center;
   font-weight:bold
@@ -263,7 +270,7 @@ div .content{
 .contact{
   background-color: rgba(139, 255, 201, 0.39);
   min-height: 400px;
-  margin: 65px 0 0 0;
+  margin: 103px 0 0 0;
 }
 
 .icon-call-end {
@@ -287,4 +294,21 @@ div .content{
 
 .comp-inf-right{
 margin: 20px 0 0 20px;
+}
+.day{
+  line-height: 8px;
+}
+.references{
+  padding-left: 35px;
+}
+
+.schedule{
+  padding-left: 35px;
+
+}
+.working_days{
+  padding-left: 2px;
+}
+.weekend{
+  padding-left: 20px;
 }

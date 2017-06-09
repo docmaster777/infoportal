@@ -20,24 +20,23 @@ use yii\helpers\Html;use yii\helpers\Url;
             <div class="tab-content">
                 <div class="cardCompany-imgContent" id="cardCompany">
                     <?php foreach ($article as $art): ?>
+                        <div class="companies-text">
+                            <h2><?= Html::tag('div', Html::encode($art->title),['class' => 'title-company-one']);?></h2>
+                        </div>
+
                             <?= Html::img("/web/uploads/{$art->image}", ['alt' => $article->title, 'class' => 'img-content']) ?>
 
-                    <?php endforeach; ?>
 
 
-                    <div class="companies-text">
-                        <h2><?= Html::tag('div', Html::encode($art->title),['class' => 'title-company-one']);?></h2>
-                        <?= Html::tag('div', Html::encode($art->description),['class' => 'description-company-one']);?>
-                    </div>
+
+
+
                 </div>
-
-
-
-
-
-<!--                <div class="two-text" id="two-text">-->
-<!--                    Акции-->
-<!--                </div>-->
+                <div class="companies-text">
+                    <h3><?= Html::tag('div', Html::encode($art->description),['class' => 'description-company-one']);?></h3>
+                    <h4><?= Html::tag('div', Html::encode($art->content),['class' => 'content-company-one']);?></h4>
+                </div>
+                <?php endforeach; ?>
             </div>
         </div>
 
@@ -55,14 +54,15 @@ use yii\helpers\Html;use yii\helpers\Url;
 
                 <div class="company-inf-col3">
                     <span class="icon-globe"></span><span class="link">Ссылки:</span>
-                    <p><?= Html::tag('span', Html::encode($art->adress),['class' => 'addres-number']);?></p>
+                    <p><?= Html::tag('span', Html::encode($art->references),['class' => 'references']);?></p>
                 </div>
 
                 <div class="company-inf-col4">
                     <span class="icon-clock"></span><span class="clock">График работы:</span>
-                    <p><?= Html::tag('span', Html::encode($art->adress),['class' => 'addres-number']);?></p>
-                    <p></p><span class=" ">Рабочии дни:</span></p>
-                    <p><span class=" ">Выходной:</span></p>
+                    <div class="day">
+                        <p></p><span class="schedule">Рабочии дни:</span> <?= Html::tag('span', Html::encode($art->working_days),['class' => 'working_days']);?></p>
+                        <p><span class="schedule">Выходной:</span><?= Html::tag('span', Html::encode($art->weekend),['class' => 'weekend']);?></p>
+                    </div>
                 </div>
             </div>
 

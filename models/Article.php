@@ -3,7 +3,6 @@
 namespace app\models;
 
 use Yii;
-use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "article".
@@ -11,14 +10,17 @@ use yii\helpers\ArrayHelper;
  * @property integer $id
  * @property string $title
  * @property string $description
- * @property string $adress
  * @property string $content
+ * @property string $adress
  * @property string $date
  * @property string $image
  * @property integer $viewed
  * @property integer $user_id
  * @property integer $status
  * @property integer $category_id
+ * @property string $references
+ * @property string $working_days
+ * @property string $weekend
  *
  * @property ArticleTag[] $articleTags
  * @property Comment[] $comments
@@ -39,10 +41,10 @@ class Article extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['description', 'content'], 'string'],
+            [['description', 'content', 'adress', 'references', 'working_days', 'weekend'], 'string'],
             [['date'], 'safe'],
             [['viewed', 'user_id', 'status', 'category_id'], 'integer'],
-            [['title', 'adress', 'image'], 'string', 'max' => 255],
+            [['title', 'image'], 'string', 'max' => 255],
         ];
     }
 
@@ -55,14 +57,17 @@ class Article extends \yii\db\ActiveRecord
             'id' => 'ID',
             'title' => 'Title',
             'description' => 'Description',
-            'adress' => 'Adress',
             'content' => 'Content',
+            'adress' => 'Adress',
             'date' => 'Date',
             'image' => 'Image',
             'viewed' => 'Viewed',
             'user_id' => 'User ID',
             'status' => 'Status',
             'category_id' => 'Category ID',
+            'references' => 'References',
+            'working_days' => 'Working Days',
+            'weekend' => 'Weekend',
         ];
     }
 
@@ -79,12 +84,12 @@ class Article extends \yii\db\ActiveRecord
     public function getImage()
     {
 
-        return ($this->image) ? '/web/uploads/' . $this->image : '/web/no-image.png';
+        return ($this->image) ? '/web/uploads/' .$this->image : '/web/no-image.png';
     }
 
     public function deleteImage()
     {
-        $imageUploadModel = new ImageUpload();
+        $imageUploadModel= new ImageUpload();
         $imageUploadModel->deleteCurrentImage($this->image);
 
     }
@@ -97,7 +102,7 @@ class Article extends \yii\db\ActiveRecord
 
     public function getCategory()
     {
-        return $this->hasOne(Category::className(), ['id' => 'category_id']);
+        return $this->hasOne(Category::className(), ['id' =>'category_id']);
     }
 
     public  function saveCategory($categoty_id){
@@ -111,12 +116,12 @@ class Article extends \yii\db\ActiveRecord
 
     public function getTags()
     {
-        return $this->hasMany(Tag::className(), ['id' => 'tag_id'])
-            ->viaTable('article_tag', ['article_id' => 'id']);
+        return $this->hasMany(Tag::className(), ['id' =>'tag_id'])
+            ->viaTable('article_tag', ['article_id' =>'id']);
     }
 
     public function getSelectedTags(){
-        $selectedIds = $this->getTags()->select('id')->asArray()->all();
+        $selectedIds= $this->getTags()->select('id')->asArray()->all();
         return ArrayHelper::getColumn($selectedIds, 'id');
     }
 
@@ -126,7 +131,7 @@ class Article extends \yii\db\ActiveRecord
         {
             $this->clearCurrentTag();
 
-            foreach ($tags as $tag_id)
+            foreach($tags as $tag_id)
             {
                 $tag = Tag::findOne($tag_id);
                 $this->link('tags', $tag);
@@ -137,6 +142,5 @@ class Article extends \yii\db\ActiveRecord
     {
         ArticleTag::deleteAll(['article_id'=>$this->id]);
     }
-
 
 }

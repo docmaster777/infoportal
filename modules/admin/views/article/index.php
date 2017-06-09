@@ -37,6 +37,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Html::img($date->getImage(), ['width'=>200]);
                 }
             ],
+            'references',
+            'working_days',
+            'weekend',
             // 'image',
             // 'viewed',
             // 'user_id',
