@@ -45,7 +45,8 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'category/<id:\d+>' => 'category/view'
+                'category/<id:\d+>' => 'category/view',
+                'company/<id:\d+>' => 'company/index'
 //                '<action>' => 'site/<action>',
 //                '/admin' => 'app/modules/admin/views/default/index.php'
             ],

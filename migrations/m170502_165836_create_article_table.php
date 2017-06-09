@@ -17,6 +17,7 @@ class m170502_165836_create_article_table extends Migration
             'title' => $this->string(),
             'description' => $this->text(),
             'content' => $this->text(),
+            'adress' => $this->text(),
             'date' => $this->date(),
             'image' => $this->string(),
             'viewed' => $this->integer(), //кол-во просмотров статьи

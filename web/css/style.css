@@ -182,22 +182,56 @@ div .content{
 }
 
 .cat-img{
-  float: left;
+
   padding: 0 10px;
 }
 
 .all-cat{
   width: 290px;
-
 }
 
-.one-company{
+.border-company{
+  width: 625px;
+  background-color: rgba(63, 144, 125, 0.02);
   border: double #a8c7ce;
-  width: 600px;
+  padding-left: 0;
+  padding-right: 0;
   margin-left: 5px;
-  cursor: hand;
 }
 
 .category-group{
   list-style: none;
 }
+.item-company-map{
+  border: double;
+}
+
+.img-content{
+  position: relative;
+  float: left;
+  height: 100%;
+
+}
+
+.lineItem {
+  padding: 0;
+  display: block;
+  float: left;
+  width: 619px;
+}
+.rates-item{
+  text-decoration: none;
+  border-bottom: double #a8c7ce;
+}
+.rates-item:hover{
+  text-decoration: none;
+
+}
+.title-company{
+  margin: 5px 5px 10px 190px;
+  text-transform: uppercase;
+}
+.address-company{
+  margin: 5px 5px 10px 190px;
+}
+

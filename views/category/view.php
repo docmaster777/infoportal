@@ -19,35 +19,24 @@ use yii\helpers\Url;
                 </ul>
             </div>
         </div>
-<!--Конец блока компаний-->
+        <!--Конец блока компаний-->
 
-<!--Блок вывода списка компаний-->
-            <a href="<?=Url::to(['category/company/', 'id' => $article['id']])?>"><div class="col-md-4 one-company">
-                <div class="col-com lineItem rates-item">
-                    <div class="item item-company-map">
-                        <?php if (!empty($articles)): ?>
-                            <?php foreach ($articles as $article): ?>
-                                <p class="cat-img">
-                                    <?= Html::img("/web/uploads/{$article->image}", ['width' => 200,'alt' => $article->title]) ?>
-                                </p>
-                                <p>
-                                    <h4><?=$article->title;?></h4>
-                                </p>
-
-                                <p>
-                                    <?=$article->adress;?>
-                                </p>
-                            <?php endforeach; ?>
-
-                            <?php else: ?><p>Сдесь пока что пусто</p>
-                        <?php endif; ?>
-                    </div>
-                </div>
-            </a>
+        <!--Блок вывода списка компаний-->
+        <div class="col-md-4 border-company">
+            <?php if (!empty($articles)): ?>
+                <?php foreach ($articles as $article): ?>
+                    <a href="<?=Url::to(['company/', 'id' => $article['id']] )?>" class="col-com lineItem rates-item">
+                            <?= Html::img("/web/uploads/{$article->image}", ['width' => 180,'alt' => $article->title, 'class' => 'img-content']) ?>
+                            <?= Html::tag('div', Html::encode($article->title),['class' => 'title-company']);?>
+                            <?= Html::tag('div', Html::encode($article->adress),['class' => 'address-company']);?>
+                    </a>
+                <?php endforeach; ?>
+                <?php else: ?><p>Сдесь пока что пусто</p>
+            <?php endif; ?>
         </div>
-<!--Конец блока вывода списка компаний-->
     </div>
 </div>
+<!--Конец блока вывода списка компаний-->
 
 
 

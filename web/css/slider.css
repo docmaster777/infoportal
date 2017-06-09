@@ -2,10 +2,7 @@
 
 .sl{
     width: 102.5%;
-    margin: 56px 0 0 -15px ;
-    /*background: fixed;*/
-    /*z-index: -2;*/
-
+    margin: 0 0 0 -15px ;
 }
 .sl__slide{
     position: relative;
