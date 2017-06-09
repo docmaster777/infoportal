@@ -8,11 +8,12 @@ use yii\web\Controller;
 
 class CompanyController extends Controller
 {
-    public function actionIndex()
+    public function actionIndex($id)
     {
         $id = Yii::$app->request->get('id');
+//        debug($id);
 
-        $article = Article::find()->all();
+        $article = Article::find()->where(['id' => $id])->all();
 
 
         return $this->render('index', compact('article'));

@@ -25,9 +25,6 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkwZMtjcI4gjBj9l0WbMj0XAEPrB4RW84&callback=initMap">
-</script>
 
     <div class="container">
 
@@ -102,8 +99,8 @@ AppAsset::register($this);
     <div class="container">
         <br><br><br>
         <hr>
-        <p class="pull-left">&copy;
-            Информационный городской портал <?= date("d.m.Y") ?></p>
+        <p class="pull-left">
+            &copy;Информационный городской портал <?= date("d.m.Y") ?></p>
 
         <p class="pull-right">Information city portal</p>
     </div>

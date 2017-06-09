@@ -7,6 +7,7 @@ body{
   color: #353535;
   background: #F3FAFF;
   height: 1000px;
+  font-family: rotondacregular;
 }
 
 /*Навигационное меню*/
@@ -235,3 +236,42 @@ div .content{
   margin: 5px 5px 10px 190px;
 }
 
+/*Страница отдельной компании*/
+.one-company{
+  float: left;
+}
+.cardCompany-imgContent{
+  width: 700px;
+  height: 420px;
+  margin: 20px 0 0 20px ;
+}
+.img-content{
+  /*width: 135px;*/
+  /*height: 135px;*/
+  /*display: table-cell;*/
+  /*vertical-align: middle;*/
+  /*text-align: center;*/
+  /*line-height: 135px;*/
+  /*margin: 0px;*/
+  /*padding: 0px;*/
+}
+
+.hr-color{
+  color: #000;
+}
+.cardCompany-imgConten{
+  float: left;
+}
+.address-company-one .description-company-one{
+  font-size: 15px;
+  padding: 5px 5px 5px 5px ;
+}
+.title-company-one {
+  text-align: center;
+  font-weight:bold
+}
+.contact{
+  background-color: #8bffa5;
+  /*width: 100px;*/
+  min-height: 800px;
+}
