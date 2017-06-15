@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Article */
+/* @var $model app\modules\users\models\Article */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -26,9 +26,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'viewed')->textInput() ?>
 
-<!--    --><?//= $form->field($model, 'user_id')->textInput() ?>
+    <?= $form->field($model, 'user_id')->textInput() ?>
 
-<!--    --><?//= $form->field($model, 'status')->textInput() ?>
+    <?= $form->field($model, 'status')->textInput() ?>
 
     <?= $form->field($model, 'category_id')->textInput() ?>
 

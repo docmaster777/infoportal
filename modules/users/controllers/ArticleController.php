@@ -3,8 +3,8 @@
 namespace app\modules\users\controllers;
 
 use Yii;
-use app\models\Article;
-use app\models\ArticleSearch;
+use app\modules\users\models\Article;
+use app\modules\users\models\ArticleSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -33,18 +33,16 @@ class ArticleController extends Controller
      * Lists all Article models.
      * @return mixed
      */
-    public function actionIndex($id)
-    {
-        $searchModel = new ArticleSearch();
+    public function actionIndex(){
 
+        $searchModel = new ArticleSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        $id = Yii::$app->request->get('id');
-        $article = Article::find()->where(['user_id' => $id])->all();
-
-        return $this->render('index', compact('article'), [
+        return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+
+
         ]);
     }
 
@@ -119,17 +117,11 @@ class ArticleController extends Controller
      */
     protected function findModel($id)
     {
-//        $id = Yii::$app->request->get('id');
-//        $article = Article::find()->where(['user_id' => $id])->all();
-//        $model = Article::findOne($article);
-//
-//        return $model;
-
-        if (($model = Article::findOne($id)) !== null)
-        {
+        if (($model = Article::findOne($id)) !== null) {
             return $model;
         } else {
-            throw new NotFoundHttpException('Запрошенная страница не существует.');
+            throw new NotFoundHttpException('The requested page does not exist.');
         }
+
     }
 }
