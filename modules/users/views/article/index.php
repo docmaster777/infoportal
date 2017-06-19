@@ -1,5 +1,7 @@
 <?php
 
+use app\models\Category;
+use app\models\User;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -18,11 +20,31 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Create Article', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
+
+
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
+//            [
+//                'attribute'=>'user_id',
+//                'label'=>'Родительская категория',
+//                'format'=>'text', // Возможные варианты: raw, html
+//                'content'=>function($data){
+//                    return $data->getParentName();
+//                },
+////                'filter' => Category::getParentsList()
+//            ],
+//            [
+//                'attribute'=>'id',
+//                'label'=>'Родительская категория',
+//                'format'=>'text', // Возможные варианты: raw, html
+//                'content'=>function($data){
+//                    return $data->getParentName();
+//                },
+////                'filter' => Category::getParentsList()
+//            ],
             'id',
             'title',
             'description:ntext',

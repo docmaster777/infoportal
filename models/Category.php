@@ -46,4 +46,5 @@ class Category extends ActiveRecord
     {
         return $this->hasMany(Article::className(), ['category_id' => 'id']);
     }
+
 }

@@ -8,6 +8,7 @@ use app\components\CityWidget;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
@@ -53,12 +54,17 @@ AppAsset::register($this);
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Выберите город <b class="caret"></b></a>
                             <ul class="dropdown-menu">
 
-                    <?=CityWidget::widget(['city' => 'city'])?>
+                                <?=CityWidget::widget(['city' => 'city'])?>
 
 
                             </ul>
                         </li>
-                        <li><a href="#">Вход</a></li>
+                        <?php if (!Yii::$app->user->isGuest):?>
+                            <li><a href="<?= \yii\helpers\Url::to(['/site/logout']);?>"><?= Yii::$app->user->identity['name']?>
+                                    (Выход)
+                                </a></li>
+                        <?php endif; ?>
+                        <li><a href="<?= \yii\helpers\Url::to(['/users/article/login']);?>">Вход</a></li>
                         <li><a href="#">Регистрация</a></li>
 <!--                        <li class="active"><a href="#">Ссылка</a></li>-->
 <!--                        <li class="active"><a href="#">Ссылка</a></li>-->
@@ -87,9 +93,11 @@ AppAsset::register($this);
         </nav>
 
 <!--        Конец навигационного меню-->
+
+
         <div class="content">
         <?= $content ?>
-
+<!--        --><?php //debug(Yii::$app->user->identity);?>
         </div>
     </div>
 

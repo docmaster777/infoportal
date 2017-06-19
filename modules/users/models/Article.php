@@ -2,6 +2,8 @@
 
 namespace app\modules\users\models;
 
+use app\models\User;
+//use app\models\Category;
 use Yii;
 
 /**
@@ -74,10 +76,10 @@ class Article extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getArticleTags()
-    {
-        return $this->hasMany(ArticleTag::className(), ['article_id' => 'id']);
-    }
+//    public function getArticleTags()
+//    {
+//        return $this->hasMany(ArticleTag::className(), ['article_id' => 'id']);
+//    }
 
     /**
      * @return \yii\db\ActiveQuery
@@ -86,4 +88,19 @@ class Article extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Comment::className(), ['article_id' => 'id']);
     }
+
+    //    мой код
+    public function getParent()
+    {
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
+    }
+
+    public function getParentName()
+    {
+        $parent = $this->parent;
+
+        return $parent ? $parent->name : '';
+    }
+    //    мой код конец
+
 }

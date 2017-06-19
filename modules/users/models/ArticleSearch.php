@@ -2,6 +2,7 @@
 
 namespace app\modules\users\models;
 
+use articles;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
@@ -36,12 +37,14 @@ class ArticleSearch extends Article
      * Creates data provider instance with search query applied
      *
      * @param array $params
+     *  @param integer $id
      *
      * @return ActiveDataProvider
      */
     public function search($params)
     {
-        $query = Article::find()->andWhere(['user_id' => Yii::$app->user->id]);
+        $query = Article::find()->where(['user_id' => $params]);
+
 
         // add conditions that should always apply here
 

@@ -5,14 +5,14 @@ namespace app\modules\users\controllers;
 use Yii;
 use app\modules\users\models\Article;
 use app\modules\users\models\ArticleSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\LoginForm;
 
 /**
  * ArticleController implements the CRUD actions for Article model.
  */
-class ArticleController extends Controller
+class ArticleController extends AppUserAdminController
 {
     /**
      * @inheritdoc
@@ -31,9 +31,12 @@ class ArticleController extends Controller
 
     /**
      * Lists all Article models.
+     * @param integer $id
      * @return mixed
      */
     public function actionIndex(){
+
+//        $id = Yii::$app->request->get('id');
 
         $searchModel = new ArticleSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -41,8 +44,6 @@ class ArticleController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-
-
         ]);
     }
 
@@ -123,5 +124,32 @@ class ArticleController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
 
+    }
+
+    public function actionLogin()
+    {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            return $this->goBack();
+        }
+        return $this->render('login', [
+            'model' => $model,
+        ]);
+    }
+
+    /**
+     * Logout action.
+     *
+     * @return string
+     */
+    public function actionLogout()
+    {
+        Yii::$app->user->logout();
+
+        return $this->goHome();
     }
 }
