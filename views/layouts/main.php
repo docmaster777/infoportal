@@ -59,13 +59,28 @@ AppAsset::register($this);
 
                             </ul>
                         </li>
+
                         <?php if (!Yii::$app->user->isGuest):?>
-                            <li><a href="<?= \yii\helpers\Url::to(['/site/logout']);?>"><?= Yii::$app->user->identity['name']?>
-                                    (Выход)
+                            <li>
+                                <a href="<?= \yii\helpers\Url::to(['/users/article/index', 'id' => Yii::$app->user->id]);?>"><?= Yii::$app->user->identity['name']?>
+                                    (личный кабинет)
+                                </a>
+                            </li>
+                        <?php endif; ?>
+
+                        <?php if (!Yii::$app->user->isGuest):?>
+                            <li><a href="<?= \yii\helpers\Url::to(['/site/logout']);?>">
+                                    Выход
                                 </a></li>
                         <?php endif; ?>
-                        <li><a href="<?= \yii\helpers\Url::to(['/users/article/login']);?>">Вход</a></li>
-                        <li><a href="#">Регистрация</a></li>
+
+                        <?php if (Yii::$app->user->isGuest):?>
+                            <li><a href="<?= \yii\helpers\Url::to(['/users/article/login']);?>">Вход</a></li>
+                        <?php endif; ?>
+
+                        <?php if (Yii::$app->user->isGuest):?>
+                            <li><a href="#">Регистрация</a></li>
+                        <?php endif; ?>
 <!--                        <li class="active"><a href="#">Ссылка</a></li>-->
 <!--                        <li class="active"><a href="#">Ссылка</a></li>-->
                     </ul>

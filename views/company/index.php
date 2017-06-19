@@ -54,7 +54,7 @@ use yii\helpers\Html;use yii\helpers\Url;
 
                 <div class="company-inf-col3">
                     <span class="icon-globe"></span><span class="link">Ссылки:</span>
-                    <p><?= Html::tag('span', Html::encode($art->references),['class' => 'references']);?></p>
+                    <a href=" "> <p><?= Html::tag('span', Html::encode($art->references),['class' => 'references']);?></p></a>
                 </div>
 
                 <div class="company-inf-col4">
