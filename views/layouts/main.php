@@ -79,7 +79,7 @@ AppAsset::register($this);
                         <?php endif; ?>
 
                         <?php if (Yii::$app->user->isGuest):?>
-                            <li><a href="#">Регистрация</a></li>
+                            <li><a href="<?= \yii\helpers\Url::to(['/users/article/signup']);?>">Регистрация</a></li>
                         <?php endif; ?>
 <!--                        <li class="active"><a href="#">Ссылка</a></li>-->
 <!--                        <li class="active"><a href="#">Ссылка</a></li>-->

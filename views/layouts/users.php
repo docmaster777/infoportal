@@ -27,7 +27,12 @@ AppAsset::register($this);
 <div class="admin">
     <ul id="admin">
         <li><?= Html::a('Главная', ['/site/index']) ?></li>
-        <li><?= Html::a('Статьи', ['/users/article/index']) ?></li>
+        <?php if (!Yii::$app->user->isGuest):?>
+            <li><a href="<?= \yii\helpers\Url::to(['/users/article/index', 'id' => Yii::$app->user->id]);?>">
+                    Статьи
+                </a></li>
+        <?php endif; ?>
+<!--        <li>--><?//= Html::a('Статьи', ['/users/article/index']) ?><!--</li>-->
     </ul>
 </div>
 

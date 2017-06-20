@@ -2,6 +2,10 @@
 
 namespace app\modules\users\controllers;
 
+use app\models\Signup;
+
+use app\models\SignupForm;
+use app\models\User;
 use Yii;
 use app\modules\users\models\Article;
 use app\modules\users\models\ArticleSearch;
@@ -152,4 +156,37 @@ class ArticleController extends AppUserAdminController
 
         return $this->goHome();
     }
+
+    public function actionAddAdmin() {
+        $model = User::find()->where(['name' => 'admin'])->one();
+        if (empty($model)) {
+            $user = new User();
+            $user->name = 'admin';
+            $user->email = 'admin@кодер.укр';
+            $user->setPassword('admin');
+            $user->generateAuthKey();
+            if ($user->save()) {
+                echo 'good';
+            }
+        }
+    }
+
+    public function actionSignup()
+    {
+        $model = new SignupForm();
+
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->signup()) {
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->goHome();
+                }
+            }
+        }
+
+        return $this->render('signup', [
+            'model' => $model,
+        ]);
+    }
+
+
 }
