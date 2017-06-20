@@ -62,7 +62,7 @@ AppAsset::register($this);
 
                         <?php if (!Yii::$app->user->isGuest):?>
                             <li>
-                                <a href="<?= \yii\helpers\Url::to(['/users/article/index', 'id' => Yii::$app->user->id]);?>"><?= Yii::$app->user->identity['name']?>
+                                <a href="<?= \yii\helpers\Url::to(['/users/article/index', 'id' => Yii::$app->user->id]);?>"><?= Yii::$app->user->identity['username']?>
                                     (личный кабинет)
                                 </a>
                             </li>

@@ -2,16 +2,14 @@
 
 namespace app\modules\users\controllers;
 
-use app\models\Signup;
-
 use app\models\SignupForm;
-use app\models\User;
 use Yii;
 use app\modules\users\models\Article;
 use app\modules\users\models\ArticleSearch;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
+use app\models\User;
 
 /**
  * ArticleController implements the CRUD actions for Article model.
@@ -39,8 +37,6 @@ class ArticleController extends AppUserAdminController
      * @return mixed
      */
     public function actionIndex(){
-
-//        $id = Yii::$app->request->get('id');
 
         $searchModel = new ArticleSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -157,25 +153,11 @@ class ArticleController extends AppUserAdminController
         return $this->goHome();
     }
 
-    public function actionAddAdmin() {
-        $model = User::find()->where(['name' => 'admin'])->one();
-        if (empty($model)) {
-            $user = new User();
-            $user->name = 'admin';
-            $user->email = 'admin@кодер.укр';
-            $user->setPassword('admin');
-            $user->generateAuthKey();
-            if ($user->save()) {
-                echo 'good';
-            }
-        }
-    }
-
     public function actionSignup()
     {
         $model = new SignupForm();
 
-        if ($model->load(Yii::$app->request->post())) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($user = $model->signup()) {
                 if (Yii::$app->getUser()->login($user)) {
                     return $this->goHome();
