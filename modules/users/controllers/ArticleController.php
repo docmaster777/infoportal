@@ -71,7 +71,6 @@ class ArticleController extends AppUserAdminController
     public function actionCreate($id)
     {
         $model = new Article();
-//        $categories = ArrayHelper::map(Category::find()->all(), 'id', 'title');
         $model->user_id = Yii::$app->user->getId();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);

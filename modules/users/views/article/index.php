@@ -55,7 +55,15 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'viewed',
             // 'user_id',
             // 'status',
-             'category_id',
+//             'category_id',
+            [
+            'attribute'=>'category_id',
+            'value' => function($data){
+                return $data->category->title;
+            },
+                'format'=>'text', // Возможные варианты: raw, html
+//                'content'=> \app\models\Article::find()->where('category_id')->all(),
+             ],
             // 'references:ntext',
             // 'working_days:ntext',
             // 'weekend:ntext',

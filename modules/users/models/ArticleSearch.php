@@ -43,7 +43,7 @@ class ArticleSearch extends Article
      */
     public function search($params)
     {
-        $query = Article::find()->where(['user_id' => $params]);
+        $query = Article::find()->where(['user_id' => $params])->orderBy(['id' => SORT_DESC]);
 
 
         // add conditions that should always apply here

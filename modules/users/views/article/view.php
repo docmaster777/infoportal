@@ -16,8 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('Обновить', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -35,15 +35,31 @@ $this->params['breadcrumbs'][] = $this->title;
             'content:ntext',
             'adress:ntext',
             'date',
+//            [
+//                'label' => 'Дата',
+//                'value' => function($data){
+//                    return $data->date;
+//                },
+//            ],
             'image',
             'viewed',
             [
-                'label' => 'user_id',
-                'value' => $model=Yii::$app->user->id,
+                'label' => 'Пользователь',
+                'value' => function($data){
+                    return $data->user->username;
+                },
             ],
 //            ['user_id'=>Yii::$app->user->id],
             'status',
-            'category_id',
+//            'category_id',
+            [
+                'attribute'=>'category_id',
+                'value' => function($data){
+                    return $data->category->title;
+                },
+                'format'=>'text',
+
+            ],
             'references:ntext',
             'working_days:ntext',
             'weekend:ntext',

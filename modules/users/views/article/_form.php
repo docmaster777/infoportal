@@ -16,11 +16,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'description')->textarea(['rows' => 2]) ?>
 
     <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'adress')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'adress')->textarea(['rows' => 2]) ?>
 
 <!--    --><?//= $form->field($model, 'date')->textInput() ?>
 
@@ -36,20 +36,21 @@ use yii\widgets\ActiveForm;
     $article = Category::find()->all();
     $items = ArrayHelper::map(Category::find()->all(), 'id', 'title');
     $params = [
-        'prompt' => 'Выберите категорию'
+        'prompt' => 'Выберите категорию',
+//        'message'=>'Не выбрана категория'
     ];
     ?>
     <?= $form->field($model, 'category_id')->dropDownList($items,$params); ?>
 <!--    --><?//= Html::dropDownList('category', $selectedCategoty, $categories, ['class' => 'form-control']) ?>
 
-    <?= $form->field($model, 'references')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'references')->textarea(['rows' => 1]) ?>
 
-    <?= $form->field($model, 'working_days')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'working_days')->textarea(['rows' => 1]) ?>
 
-    <?= $form->field($model, 'weekend')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'weekend')->textarea(['rows' => 1]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Обновить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
