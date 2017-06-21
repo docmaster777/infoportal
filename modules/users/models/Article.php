@@ -6,6 +6,7 @@ use app\models\Comment;
 use app\models\User;
 use app\models\Category;
 use Yii;
+use yii\db\ActiveRecord;
 use yii\web\UploadedFile;
 
 /**
@@ -29,16 +30,18 @@ use yii\web\UploadedFile;
  * @property ArticleTag[] $articleTags
  * @property Comment[] $comments
  */
-class Article extends \yii\db\ActiveRecord
+class Article extends ActiveRecord
 {
     /**
      * @inheritdoc
      */
+    public $file;
+
     public static function tableName()
     {
         return 'article';
     }
-    public $image;
+
 
     /**
      * @inheritdoc
@@ -53,7 +56,8 @@ class Article extends \yii\db\ActiveRecord
             [['title', 'image'], 'string', 'max' => 255],
             [['title', 'description', 'content', 'adress'], 'required'],
             [['category_id'], 'required', 'message'=>'Не выбрана категория'],
-            [['image'], 'image', 'extensions' => 'png, jpg, jpeg, gif', 'maxFiles' => 4, 'skipOnEmpty' => false]
+            [['file'], 'file'],
+//            [['image'], 'image', 'extensions' => 'png, jpg, jpeg, gif', 'maxFiles' => 4, 'skipOnEmpty' => false]
 
         ];
     }
@@ -78,6 +82,7 @@ class Article extends \yii\db\ActiveRecord
             'references' => 'Ваши ссылки',
             'working_days' => 'Рабочие дни',
             'weekend' => 'Выходные дни',
+            'file' => 'Добавить картинку'
         ];
     }
 
@@ -94,17 +99,11 @@ class Article extends \yii\db\ActiveRecord
             return true;
         }
     }
-
+//
     public function getUser()
     {
         return $this->hasOne(User::className(), ['id' =>'user_id']);
     }
 
-//    public function upload($dir, $imageObj) {
-//        $name = $imageObj->baseName;
-//        $ext = $imageObj->extension;
-//        $imageObj->saveAs($dir . $name . '.' . $ext);
-//        return true;
-//    }
 
 }

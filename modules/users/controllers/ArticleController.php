@@ -14,6 +14,8 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\User;
 use yii\web\UploadedFile;
+use app\modules\users\models\UploadForm;
+
 
 /**
  * ArticleController implements the CRUD actions for Article model.
@@ -73,9 +75,11 @@ class ArticleController extends AppUserAdminController
         $model = new Article();
         $model->user_id = Yii::$app->user->getId();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $model->image=UploadedFile::getInstance($model, 'image');
-            $model->image->saveAs('@web/images/'. $model->image->baseName . '.' .$model->image->extension);
 
+            $model->file=UploadedFile::getInstance($model, 'file');
+            $model->file->saveAs('uploads/'. $model->file->baseName . '.' .$model->file->extension);
+            $model->image = $model->file->baseName . '.' .$model->file->extension;
+            $model->save();
             
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -96,6 +100,10 @@ class ArticleController extends AppUserAdminController
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $model->file=UploadedFile::getInstance($model, 'file');
+            $model->file->saveAs('uploads/'. $model->file->baseName . '.' .$model->file->extension);
+            $model->image = $model->file->baseName . '.' .$model->file->extension;
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -177,36 +185,5 @@ class ArticleController extends AppUserAdminController
             'model' => $model,
         ]);
     }
-
-
-
-
-//    мой код
-
-//    public function actionSetCategory($id)
-//    {
-//
-//        $article = $this->findModel($id);
-//        $selectedCategoty = $article->category->id;
-//        $categories = ArrayHelper::map(Category::find()->all(), 'id', 'title');
-//
-//        if (Yii::$app->request->port){
-//            $categoty = Yii::$app->request->post('category');
-//            if ($article->saveCategory($categoty))
-//            {
-//                return $this->redirect(['view', 'id' => $article-> id]);
-//            }
-//
-//
-//        }
-//
-//        return $this->render('category', [
-//                'article' => $article,
-//                'selectedCategoty' => $selectedCategoty,
-//                'categories' => $categories
-//            ]
-//        );
-//
-//    }
 
 }
