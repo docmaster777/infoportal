@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\modules\users\models\Article */
 
-$this->title = 'Create Article';
-$this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['index']];
+$this->title = 'Создание записи';
+$this->params['breadcrumbs'][] = ['label' => 'Записи', 'url' => ['index', 'id'=>Yii::$app->user->id]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="article-create">

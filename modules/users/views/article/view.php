@@ -3,11 +3,12 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
+
 /* @var $this yii\web\View */
 /* @var $model app\modules\users\models\Article */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Записи', 'url' => ['index','id'=>Yii::$app->user->id]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="article-view">
@@ -36,7 +37,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'date',
             'image',
             'viewed',
-            'user_id',
+            [
+                'label' => 'user_id',
+                'value' => $model=Yii::$app->user->id,
+            ],
+//            ['user_id'=>Yii::$app->user->id],
             'status',
             'category_id',
             'references:ntext',

@@ -23,18 +23,63 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
+<div class="container">
 
-<div class="admin">
-    <ul id="admin">
-        <li><?= Html::a('Главная', ['/site/index']) ?></li>
-        <?php if (!Yii::$app->user->isGuest):?>
-            <li><a href="<?= \yii\helpers\Url::to(['/users/article/index', 'id' => Yii::$app->user->id]);?>">
-                    Статьи
-                </a></li>
-        <?php endif; ?>
-<!--        <li>--><?//= Html::a('Статьи', ['/users/article/index']) ?><!--</li>-->
-    </ul>
-</div>
+    <!--        Навигационное меню-->
+
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--                    <a class="navbar-brand" href="#">Brand</a>-->
+                <a class="navbar-brand" href="<?=\yii\helpers\Url::to(['site/index'])?>">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                    <?php if (!Yii::$app->user->isGuest):?>
+                        <li>
+                            <a href="<?= \yii\helpers\Url::to(['/users/article/index', 'id' => Yii::$app->user->id]);?>"><?= Yii::$app->user->identity['username']?>
+                                (личный кабинет)
+                            </a>
+                        </li>
+                    <?php endif; ?>
+
+                    <?php if (!Yii::$app->user->isGuest):?>
+                        <li><a href="<?= \yii\helpers\Url::to(['/site/logout']);?>">
+                                Выход
+                            </a></li>
+                    <?php endif; ?>
+
+
+                </ul>
+
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <!--        Конец навигационного меню-->
+
+
+
+    <div class="admin">
+        <ul id="admin">
+            <li><?= Html::a('Главная', ['/site/index']) ?></li>
+            <?php if (!Yii::$app->user->isGuest):?>
+                <li><a href="<?= \yii\helpers\Url::to(['/users/article/index', 'id' => Yii::$app->user->id]);?>">
+                        Личный кабинет
+                    </a></li>
+            <?php endif; ?>
+        </ul>
+    </div>
 
 
     <div class="container">
@@ -43,7 +88,6 @@ AppAsset::register($this);
         ]) ?>
         <?= $content ?>
     </div>
-</div>
 
 <footer class="footer">
     <div class="container">

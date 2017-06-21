@@ -2,14 +2,18 @@
 
 namespace app\modules\users\controllers;
 
+use app\models\Category;
+use app\models\ImageUpload;
 use app\models\SignupForm;
 use Yii;
 use app\modules\users\models\Article;
 use app\modules\users\models\ArticleSearch;
+use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\User;
+use yii\web\UploadedFile;
 
 /**
  * ArticleController implements the CRUD actions for Article model.
@@ -64,10 +68,11 @@ class ArticleController extends AppUserAdminController
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($id)
     {
         $model = new Article();
-
+//        $categories = ArrayHelper::map(Category::find()->all(), 'id', 'title');
+        $model->user_id = Yii::$app->user->getId();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -106,7 +111,7 @@ class ArticleController extends AppUserAdminController
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['index','id'=>Yii::$app->user->id]);
     }
 
     /**
@@ -170,5 +175,33 @@ class ArticleController extends AppUserAdminController
         ]);
     }
 
+
+//    мой код
+
+//    public function actionSetCategory($id)
+//    {
+//
+//        $article = $this->findModel($id);
+//        $selectedCategoty = $article->category->id;
+//        $categories = ArrayHelper::map(Category::find()->all(), 'id', 'title');
+//
+//        if (Yii::$app->request->port){
+//            $categoty = Yii::$app->request->post('category');
+//            if ($article->saveCategory($categoty))
+//            {
+//                return $this->redirect(['view', 'id' => $article-> id]);
+//            }
+//
+//
+//        }
+//
+//        return $this->render('category', [
+//                'article' => $article,
+//                'selectedCategoty' => $selectedCategoty,
+//                'categories' => $categories
+//            ]
+//        );
+//
+//    }
 
 }
