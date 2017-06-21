@@ -1,4 +1,3 @@
-вход
 <?php
 
 /* @var $this yii\web\View */
@@ -8,13 +7,16 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Вход';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="site-login container">
+<!--    <div class="breadcrumbs-login">-->
+<!--        --><?php
+//        $this->title = 'Вход';
+//        $this->params['breadcrumbs'][] = $this->title;
+//        ?>
+<!--    </div>-->
     <h1><?= Html::encode($this->title) ?></h1>
-<!--    --><?//=$hash = Yii::$app->getSecurity()->generatePasswordHash(123);?>
     <?php $form = ActiveForm::begin([
         'id' => 'login-form',
         'layout' => 'horizontal',

@@ -38,7 +38,7 @@ AppAsset::register($this);
                     <span class="icon-bar"></span>
                 </button>
                 <!--                    <a class="navbar-brand" href="#">Brand</a>-->
-                <a class="navbar-brand" href="<?=\yii\helpers\Url::to(['site/index'])?>">Brand</a>
+                <a class="navbar-brand" href="<?=\yii\helpers\Url::to(['/site/index'])?>">Brand</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->

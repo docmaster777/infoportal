@@ -6,6 +6,7 @@ use app\models\Comment;
 use app\models\User;
 use app\models\Category;
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "article".
@@ -37,6 +38,7 @@ class Article extends \yii\db\ActiveRecord
     {
         return 'article';
     }
+    public $image;
 
     /**
      * @inheritdoc
@@ -51,6 +53,7 @@ class Article extends \yii\db\ActiveRecord
             [['title', 'image'], 'string', 'max' => 255],
             [['title', 'description', 'content', 'adress'], 'required'],
             [['category_id'], 'required', 'message'=>'Не выбрана категория'],
+            [['image'], 'image', 'extensions' => 'png, jpg, jpeg, gif', 'maxFiles' => 4, 'skipOnEmpty' => false]
 
         ];
     }
@@ -96,5 +99,12 @@ class Article extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' =>'user_id']);
     }
+
+//    public function upload($dir, $imageObj) {
+//        $name = $imageObj->baseName;
+//        $ext = $imageObj->extension;
+//        $imageObj->saveAs($dir . $name . '.' . $ext);
+//        return true;
+//    }
 
 }

@@ -73,6 +73,10 @@ class ArticleController extends AppUserAdminController
         $model = new Article();
         $model->user_id = Yii::$app->user->getId();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $model->image=UploadedFile::getInstance($model, 'image');
+            $model->image->saveAs('@web/images/'. $model->image->baseName . '.' .$model->image->extension);
+
+            
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -173,6 +177,8 @@ class ArticleController extends AppUserAdminController
             'model' => $model,
         ]);
     }
+
+
 
 
 //    мой код
