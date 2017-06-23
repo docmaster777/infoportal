@@ -51,7 +51,7 @@ use yii\helpers\Html;use yii\helpers\Url;
                     <span class="icon-map"></span><span class="addres">Адрес:</span>
                     <p><?= Html::tag('span', Html::encode($art->adress),['class' => 'addres-number']);?></p>
                 </div>
-                
+
                 <div class="company-inf-col3">
                     <span class="icon-globe"></span><span class="link">Ссылки:</span>
                     <a href="<?=Url::to($art->references)?>" class="company-inf-col3"><?=$art->references ?></a>

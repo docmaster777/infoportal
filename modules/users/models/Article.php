@@ -57,7 +57,7 @@ class Article extends ActiveRecord
             [['title', 'description', 'content', 'adress'], 'required'],
             [['category_id'], 'required', 'message'=>'Не выбрана категория'],
             [['file'], 'file'],
-//            [['image'], 'image', 'extensions' => 'png, jpg, jpeg, gif', 'maxFiles' => 4, 'skipOnEmpty' => false]
+//            [['image'], 'image', 'extensions' => 'png, jpg, jpeg, gif']
 
         ];
     }
@@ -104,6 +104,8 @@ class Article extends ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' =>'user_id']);
     }
+
+
 
 
 }

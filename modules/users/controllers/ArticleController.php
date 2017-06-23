@@ -74,10 +74,10 @@ class ArticleController extends AppUserAdminController
     {
         $model = new Article();
         $model->user_id = Yii::$app->user->getId();
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-
+        if ($model->load(Yii::$app->request->post())) {
+//            if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $model->file=UploadedFile::getInstance($model, 'file');
-            $model->file->saveAs('uploads/'. $model->file->baseName . '.' .$model->file->extension);
+            $model->file->saveAs('uploads/'. $model->id. '/' .$model->file->baseName . '.' .$model->file->extension);
             $model->image = $model->file->baseName . '.' .$model->file->extension;
             $model->save();
             
