@@ -75,12 +75,13 @@ class ArticleController extends AppUserAdminController
         $model = new Article();
         $model->user_id = Yii::$app->user->getId();
         if ($model->load(Yii::$app->request->post())) {
-//            if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $model->file=UploadedFile::getInstance($model, 'file');
-            $model->file->saveAs('uploads/'. $model->id. '/' .$model->file->baseName . '.' .$model->file->extension);
-            $model->image = $model->file->baseName . '.' .$model->file->extension;
             $model->save();
-            
+            $image=UploadedFile::getInstance($model, 'image');
+            $imageName = strtolower(md5(uniqid($model->image->baseName))). '.' .$image->getExtension();
+            $image->saveAs(Yii::getAlias('@web'). 'uploads/'.$imageName);
+            $model->image = $imageName;
+            $model->save();
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -88,6 +89,29 @@ class ArticleController extends AppUserAdminController
             ]);
         }
     }
+
+
+
+
+
+//    public function actionCreate($id)
+//    {
+//        $model = new Article();
+//        $model->user_id = Yii::$app->user->getId();
+//        if ($model->load(Yii::$app->request->post())) {
+////            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+//            $model->file=UploadedFile::getInstance($model, 'file');
+//            $model->file->saveAs('uploads/'. $model->id. $model->file->baseName . '.' .$model->file->extension);
+//            $model->image = $model->file->baseName . '.' .$model->file->extension;
+//            $model->save();
+//
+//            return $this->redirect(['view', 'id' => $model->id]);
+//        } else {
+//            return $this->render('create', [
+//                'model' => $model,
+//            ]);
+//        }
+//    }
 
     /**
      * Updates an existing Article model.
@@ -99,7 +123,8 @@ class ArticleController extends AppUserAdminController
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $model->save();
             $model->file=UploadedFile::getInstance($model, 'file');
             $model->file->saveAs('uploads/'. $model->file->baseName . '.' .$model->file->extension);
             $model->image = $model->file->baseName . '.' .$model->file->extension;

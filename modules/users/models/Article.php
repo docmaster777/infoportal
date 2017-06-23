@@ -35,7 +35,7 @@ class Article extends ActiveRecord
     /**
      * @inheritdoc
      */
-    public $file;
+//    public $file;
 
     public static function tableName()
     {
@@ -56,7 +56,7 @@ class Article extends ActiveRecord
             [['title', 'image'], 'string', 'max' => 255],
             [['title', 'description', 'content', 'adress'], 'required'],
             [['category_id'], 'required', 'message'=>'Не выбрана категория'],
-            [['file'], 'file'],
+//            [['file'], 'file'],
 //            [['image'], 'image', 'extensions' => 'png, jpg, jpeg, gif']
 
         ];
